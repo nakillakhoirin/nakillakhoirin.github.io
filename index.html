@@ -3,46 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portofolio Saya</title>
+  <title>Portofolio Nakilla Khoirin Periska</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      background: #f2f2f2;
+      background: #f0f4f8;
       color: #333;
     }
 
     header {
-      background: linear-gradient(to right, #4a00e0, #8e2de2);
+      background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
-      padding: 2rem;
+      padding: 2.5rem 1rem;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
     nav {
-      background: #333;
+      background: #1e3c72;
     }
 
     nav ul {
       display: flex;
       justify-content: center;
       list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 0;
     }
 
     nav ul li a {
       display: block;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       color: white;
       text-decoration: none;
       transition: background 0.3s ease;
     }
 
     nav ul li a:hover {
-      background: #555;
+      background: #2a5298;
     }
 
     main {
@@ -52,7 +53,15 @@
     }
 
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .portfolio-item {
@@ -61,8 +70,14 @@
       margin-bottom: 1.5rem;
       background: white;
       padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
 
     .portfolio-item img {
@@ -76,10 +91,15 @@
     }
 
     footer {
-      background: #333;
+      background: #1e3c72;
       color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    ul {
+      padding-left: 20px;
     }
 
     @media (max-width: 768px) {
@@ -98,15 +118,20 @@
 </head>
 <body>
   <header>
-    <h1>Nama Kamu</h1>
-    <p>Mahasiswa Informatika | Web Developer Enthusiast</p>
+    <h1>Nakilla Khoirin Periska</h1>
+    <p>Junior Web Developer | Siswa RPL SMK Informatika Utama</p>
   </header>
 
   <nav>
     <ul>
       <li><a href="#profil">Profil</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+      <li><a href="#data-pribadi">Data Pribadi</a></li>
       <li><a href="#pendidikan">Pendidikan</a></li>
-      <li><a href="#pengalaman">Pengalaman</a></li>
+      <li><a href="#organisasi">Organisasi</a></li>
+      <li><a href="#prestasi">Prestasi</a></li>
+      <li><a href="#hobi">Hobi</a></li>
+      <li><a href="#kemampuan">Kemampuan</a></li>
       <li><a href="#portofolio">Portofolio</a></li>
     </ul>
   </nav>
@@ -114,22 +139,70 @@
   <main>
     <section id="profil">
       <h2>Profil</h2>
-      <p>Saya adalah mahasiswa aktif jurusan Informatika dengan minat dalam pengembangan web front-end dan back-end. Saya menyukai tantangan dan terus belajar teknologi baru.</p>
+      <p>Saya siswa jurusan Rekayasa Perangkat Lunak dengan minat kuat di pemrograman dan pengembangan aplikasi desktop serta web. Berpengalaman menggunakan Python, JavaScript, Java, HTML, dan CSS. Terus belajar teknologi baru dan mengasah kemampuan melalui berbagai proyek.</p>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <ul>
+        <li>📞 +62 813 4169 0719</li>
+        <li>✉️ peni84017@gmail.com</li>
+        <li>📍 Jln H. Mujar No.372 Rt 01 Rw 04, Cinere, Depok</li>
+      </ul>
+    </section>
+
+    <section id="data-pribadi">
+      <h2>Data Pribadi</h2>
+      <ul>
+        <li>Tempat, Tanggal Lahir: Jakarta, 5 November 2008</li>
+        <li>Jenis Kelamin: Perempuan</li>
+        <li>Status: Pelajar</li>
+        <li>Kewarganegaraan: Indonesia</li>
+        <li>Agama: Islam</li>
+      </ul>
     </section>
 
     <section id="pendidikan">
       <h2>Pendidikan</h2>
       <ul>
-        <li>Universitas Teknologi Kreatif — S1 Informatika (2021 - Sekarang)</li>
-        <li>SMK Negeri 1 Coding — Rekayasa Perangkat Lunak (2018 - 2021)</li>
+        <li>SMK Informatika Utama | 2024 - Sekarang</li>
+        <li>SMP Utama | 2021 - 2024</li>
+        <li>SDN Cinere 2 | 2015 - 2021</li>
       </ul>
     </section>
 
-    <section id="pengalaman">
-      <h2>Pengalaman</h2>
+    <section id="organisasi">
+      <h2>Organisasi</h2>
       <ul>
-        <li>Asisten Laboratorium Web Programming - Kampus (2023 - sekarang)</li>
-        <li>Freelancer Web Developer - (2022 - sekarang)</li>
+        <li>Anggota Karang Taruna (Katar Rt 01 Rw 04), Kelurahan Cinere | 2024 - Sekarang</li>
+        <li>English Club</li>
+      </ul>
+    </section>
+
+    <section id="prestasi">
+      <h2>Prestasi</h2>
+      <ul>
+        <li>Juara Harapan 1 dalam Lomba Tari tingkat SD</li>
+      </ul>
+    </section>
+
+    <section id="hobi">
+      <h2>Hobi</h2>
+      <ul>
+        <li>Mendengarkan Musik</li>
+        <li>Membaca Novel</li>
+      </ul>
+    </section>
+
+    <section id="kemampuan">
+      <h2>Kemampuan</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript dasar</li>
+        <li>Laravel (CRUD, Routing, Relasi Database)</li>
+        <li>Microsoft Word</li>
+        <li>Git & GitHub dasar</li>
+        <li>Bekerja secara mandiri maupun kolaborasi</li>
+        <li>Mengembangkan dan memelihara aplikasi berbasis web menggunakan Java & Spring Framework</li>
       </ul>
     </section>
 
@@ -157,11 +230,11 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Nama Kamu. Dibuat dengan ❤️ untuk magang impian.</p>
+    <p>&copy; 2025 Nakilla Khoirin Periska. Dibuat dengan ❤️ untuk masa depan yang gemilang.</p>
   </footer>
 
   <script>
-    // Smooth scroll for nav links
+    // Smooth scroll untuk navigasi
     document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
@@ -169,7 +242,25 @@
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
         }
+        }
       });
+    });
+
+    // Animasi fade-in saat scroll
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
     });
   </script>
 </body>
