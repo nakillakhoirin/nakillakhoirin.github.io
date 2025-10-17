@@ -27,7 +27,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth; /* Untuk navigasi yang mulus */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -83,7 +83,7 @@
             border-radius: 5px;
             border-left: 3px solid var(--color-accent); 
             transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%; /* Agar semua kartu di grid tingginya sama */
+            height: 100%;
         }
 
         .card:hover {
@@ -104,16 +104,47 @@
             margin-bottom: 15px;
         }
         
-        /* === Keahlian (Skills) === */
-        .skill-badge {
-            display: inline-block;
-            background-color: var(--color-accent);
-            color: var(--color-dark-bg);
-            padding: 8px 15px;
-            border-radius: 20px;
+        /* ------------------------------------- */
+        /* === KEHLIAN (SKILLS) BARU DENGAN PROGRESS BAR === */
+        /* ------------------------------------- */
+        .skills-bar-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 20px;
+        }
+
+        .skill-name {
+            flex: 0 0 180px; /* Lebar tetap untuk nama skill */
             font-weight: 600;
-            margin: 5px;
-            font-size: 0.9em;
+            color: var(--color-light);
+            text-transform: uppercase;
+        }
+
+        .skill-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--color-accent);
+            width: 0; /* Mulai dari 0 untuk animasi */
+            transition: width 1.5s ease-out; /* Animasi progres */
+        }
+
+        .skill-percent {
+            flex: 0 0 40px;
+            font-weight: 700;
+            color: var(--color-accent);
         }
         
         /* === Prestasi (Achievement) === */
@@ -153,7 +184,7 @@
             border: 1px solid #333;
         }
 
-        /* === HERO SECTION (Sama seperti sebelumnya) === */
+        /* === HERO SECTION & CONTACT (Sama seperti sebelumnya) === */
         .top-bar { padding: 30px 0; background-color: var(--color-dark-bg); position: relative; z-index: 10; }
         .logo { font-size: 1.5em; font-weight: 700; color: var(--color-accent); text-decoration: none; display: inline-flex; align-items: center; }
         .logo-icon { background-color: var(--color-accent); color: var(--color-dark-bg); padding: 2px 8px; border-radius: 3px; margin-right: 5px; font-size: 1.2em; }
@@ -188,6 +219,7 @@
             .image-area { width: 90%; max-width: 400px; margin-bottom: 40px; order: 1; }
             .contact-info { flex-direction: column; gap: 40px; }
             .grid-container { grid-template-columns: 1fr; }
+            .skill-name { flex: 0 0 120px; }
         }
     </style>
 </head>
@@ -236,14 +268,49 @@
                 <span class="section-subtitle">Keahlian</span>
                 Keahlian Teknis
             </h2>
-            <div class="skill-list" style="text-align: center;">
-                <span class="skill-badge">UI/UX Design</span>
-                <span class="skill-badge">Web Development (HTML, CSS, JS)</span>
-                <span class="skill-badge">Branding & Logo Design</span>
-                <span class="skill-badge">Figma</span>
-                <span class="skill-badge">Adobe Illustrator</span>
-                <span class="skill-badge">SEO Optimization</span>
-                <span class="skill-badge">Prototyping</span>
+            
+            <div class="skills-bar-container">
+                
+                <div class="skill-item">
+                    <div class="skill-name">HTML</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="80%"></div>
+                    </div>
+                    <div class="skill-percent">80%</div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="80%"></div>
+                    </div>
+                    <div class="skill-percent">80%</div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">PHP</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="70%"></div>
+                    </div>
+                    <div class="skill-percent">70%</div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">JAVASCRIPT</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="75%"></div>
+                    </div>
+                    <div class="skill-percent">75%</div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">MICROSOFT OFFICE</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="82%"></div>
+                    </div>
+                    <div class="skill-percent">82%</div>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -373,9 +440,19 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("Portofolio siap. Silakan ganti semua konten placeholder dengan informasi pribadi Anda.");
-        });
+        // Fungsi untuk menjalankan animasi progress bar
+        function animateSkills() {
+            const skills = document.querySelectorAll('.skill-progress');
+            skills.forEach(skill => {
+                // Ambil nilai persentase dari atribut data-level
+                const level = skill.getAttribute('data-level');
+                // Atur lebar CSS untuk memicu transisi (animasi)
+                skill.style.width = level;
+            });
+        }
+        
+        // Panggil fungsi saat dokumen selesai dimuat
+        document.addEventListener('DOMContentLoaded', animateSkills);
     </script>
 </body>
 </html>
