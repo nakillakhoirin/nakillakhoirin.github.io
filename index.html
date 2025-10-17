@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Profesional Anda | Dark Neon Theme</title>
+    <title>Raymond Freelancer Personal Portofolio | Dark Neon Theme</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -17,7 +17,7 @@
         :root {
             --color-dark-bg: #111111;
             --color-light: #ffffff;
-            --color-accent: #39ff14;
+            --color-accent: #39ff14; /* Hijau Neon yang Khas */
             --color-darker-card: #1c1c1c;
             --color-text-dim: #999999;
         }
@@ -76,7 +76,7 @@
             gap: 30px;
         }
 
-        /* === Card Styles (Untuk Pengalaman, Pendidikan, Proyek) === */
+        /* === Card Styles (Untuk Pendidikan) === */
         .card {
             background-color: var(--color-darker-card);
             padding: 30px;
@@ -104,7 +104,7 @@
             margin-bottom: 15px;
         }
 
-        /* === TENTANG SAYA (Baru) === */
+        /* === TENTANG SAYA === */
         .about-content {
             text-align: center;
             max-width: 900px;
@@ -117,7 +117,7 @@
             color: var(--color-accent);
         }
 
-        /* === KEHLIAN (SKILLS) BARU DENGAN PROGRESS BAR === */
+        /* === KEHLIAN (SKILLS) PROGRESS BAR === */
         .skills-bar-container {
             max-width: 800px;
             margin: 0 auto;
@@ -158,41 +158,69 @@
             color: var(--color-accent);
         }
         
-        /* === Prestasi (Achievement) === */
-        .achievement-list {
-            list-style: none;
-            padding-left: 0;
-            text-align: left;
-        }
-        
-        .achievement-list li {
-            padding: 10px 0;
-            border-bottom: 1px dashed #2a2a2a;
-            position: relative;
-            padding-left: 30px;
+        /* === PRESTASI (Disesuaikan mirip prestasi.jpg) === */
+        .achievement-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            text-align: center;
         }
 
-        .achievement-list li:before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--color-accent);
-            position: absolute;
-            left: 0;
-            top: 10px;
-        }
-        
-        .achievement-list li:last-child {
-            border-bottom: none;
-        }
-        
-        /* === Project Card Images === */
-        .project-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 15px;
+        .achievement-card {
+            background-color: var(--color-darker-card);
             border: 1px solid #333;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 0 0 350px; 
+            transition: transform 0.3s;
+        }
+        
+        .achievement-card:hover {
+             transform: scale(1.05);
+             box-shadow: 0 0 15px rgba(57, 255, 20, 0.7);
+        }
+
+        .achievement-card img {
+            width: 100%;
+            max-width: 200px; 
+            height: auto;
+            margin-bottom: 15px;
+            border: 1px solid var(--color-accent);
+        }
+
+        .achievement-card p {
+            color: var(--color-light);
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        /* === PROJECT (Disesuaikan mirip Screenshot 2025-10-17 134617.jpg) === */
+        .project-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-item {
+            background-color: var(--color-darker-card);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 5px solid var(--color-accent);
+        }
+
+        .project-item h3 {
+            color: var(--color-light);
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .project-item .tech-stack {
+            color: var(--color-accent);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: block;
         }
 
         /* === HERO SECTION & CONTACT (Sama seperti sebelumnya) === */
@@ -223,7 +251,7 @@
         .social-links-contact a { color: var(--color-text-dim); font-size: 1.5em; margin: 0 15px; transition: color 0.3s; }
         .social-links-contact a:hover { color: var(--color-accent); }
         
-        /* Media Queries - Disamakan */
+        /* Media Queries - Disesuaikan */
         @media (max-width: 992px) {
             .hero-inner { flex-direction: column; text-align: center; }
             .text-area { padding-right: 0; order: 2; }
@@ -281,7 +309,7 @@
             </h2>
             <div class="about-content">
                 <p>
-                    Saya adalah **Raymond**, seorang Freelancer Designer berpengalaman lebih dari 5 tahun dalam mengubah ide menjadi solusi digital yang menawan. Fokus utama saya adalah menciptakan pengalaman pengguna (UX) yang intuitif dan desain antarmuka (UI) yang estetis, terutama dalam mode gelap.
+                    Saya adalah **Raymond**, seorang Freelancer Designer yang berfokus pada UI/UX Design dan Branding. Saya bersemangat mengubah ide menjadi solusi digital yang menawan.
                 </p>
                 <br>
                 <p>
@@ -344,33 +372,7 @@
         </div>
     </section>
     
-    <section id="experience" class="content-section" style="background-color: var(--color-darker-card);">
-        <div class="container">
-            <h2>
-                <span class="section-subtitle">Riwayat</span>
-                Pengalaman Kerja
-            </h2>
-            <div class="experience-list grid-container">
-                <div class="card">
-                    <h3>Senior UX Designer</h3>
-                    <span class="duration">2020 - Sekarang | Tech Innovate Studio</span>
-                    <p>Memimpin tim desain untuk produk B2B, meningkatkan konversi pengguna sebesar 25% melalui riset dan desain yang fokus pada pengguna.</p>
-                </div>
-                <div class="card">
-                    <h3>Junior Web Developer</h3>
-                    <span class="duration">2018 - 2020 | Kreatif Digital Agency</span>
-                    <p>Bertanggung jawab pada pengembangan front-end menggunakan teknologi modern dan memastikan kompatibilitas untuk berbagai klien.</p>
-                </div>
-                <div class="card">
-                    <h3>Desainer Grafis Magang</h3>
-                    <span class="duration">2017 | Universitas Seni Desain</span>
-                    <p>Mendukung pembuatan materi pemasaran digital dan cetak, termasuk infografis, poster, dan presentasi klien.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="content-section">
+    <section class="content-section" style="background-color: var(--color-darker-card);">
         <div class="container">
             <div class="grid-container">
                 
@@ -389,44 +391,45 @@
                 <div>
                     <h2>
                         <span class="section-subtitle">Award</span>
-                        Prestasi & Penghargaan
+                        Prestasi
                     </h2>
-                    <ul class="achievement-list">
-                        <li>"The Best UI Design" Award (2022) - Kompetisi Desain Nasional.</li>
-                        <li>Top 100 Freelancer Asia Tenggara (2021) - Majalah Desain Global.</li>
-                        <li>Sertifikasi Google UX Design Professional (2020).</li>
-                        <li>Penerima Beasiswa Penuh Desain Kreatif (2014).</li>
-                    </ul>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://via.placeholder.com/200x140/333333/ffffff?text=Sertifikat+HTML" alt="Sertifikat HTML">
+                            <p>Memiliki Sertifikat Sekolah Belajar HTML</p>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://via.placeholder.com/200x140/333333/ffffff?text=Sertifikat+CSS" alt="Sertifikat CSS">
+                            <p>Memiliki Sertifikat Sekolah Belajar CSS</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="projects" class="content-section" style="background-color: var(--color-darker-card);">
+    <section id="projects" class="content-section">
         <div class="container">
             <h2>
                 <span class="section-subtitle">Karya</span>
                 Proyek Pilihan
             </h2>
-            <div class="project-grid grid-container">
-                <div class="card project-card">
-                    <img src="https://via.placeholder.com/600x400/222222/ffffff?text=PROJECT+A+(UI/UX+App)" alt="Project A" >
-                    <h3>Aplikasi Manajemen Keuangan</h3>
-                    <span class="duration">UI/UX, Prototyping | 2023</span>
-                    <p>Desain aplikasi yang berfokus pada visualisasi data yang bersih dan minimalis untuk pasar milenial.</p>
+            <div class="project-list">
+                <div class="project-item">
+                    <h3>Membuat Web Store Toko Online</h3>
+                    <span class="tech-stack">Menggunakan HTML, CSS, dan JS, dilengkapi *e-commerce* dan fitur keranjang sederhana.</span>
+                    <p>Mengembangkan *front-end* untuk platform penjualan produk digital dengan fokus pada kecepatan *loading* dan navigasi yang mudah.</p>
                 </div>
-                <div class="card project-card">
-                    <img src="https://via.placeholder.com/600x400/222222/ffffff?text=PROJECT+B+(Rebranding+Web)" alt="Project B" >
-                    <h3>Rebranding Perusahaan Logistik</h3>
-                    <span class="duration">Branding, Web Design | 2022</span>
-                    <p>Perubahan citra total, menciptakan identitas visual yang modern dan website yang mobile-friendly.</p>
+                <div class="project-item">
+                    <h3>Membuat Sistem Informasi Web</h3>
+                    <span class="tech-stack">Menggunakan Laravel dan AdminLTE.</span>
+                    <p>Merancang dan membangun *dashboard* manajemen untuk keperluan internal perusahaan, meliputi pengelolaan data inventaris dan laporan bulanan.</p>
                 </div>
-                <div class="card project-card">
-                    <img src="https://via.placeholder.com/600x400/222222/ffffff?text=PROJECT+C+(E-Learning+System)" alt="Project C" >
-                    <h3>Sistem E-Learning Sekolah</h3>
-                    <span class="duration">UX Research, Front-end Dev | 2021</span>
-                    <p>Mengembangkan sistem pembelajaran daring yang intuitif, meningkatkan keterlibatan siswa sebesar 40%.</p>
+                <div class="project-item">
+                    <h3>Desain Aplikasi Mobile Banking</h3>
+                    <span class="tech-stack">UI/UX Design, Figma, Prototyping.</span>
+                    <p>Proyek redesign aplikasi *mobile banking* untuk meningkatkan *user experience* dan menyederhanakan proses transaksi yang kompleks.</p>
                 </div>
             </div>
             
@@ -434,7 +437,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section" style="background-color: var(--color-darker-card);">
         <div class="container">
             <h2>
                 <span class="section-subtitle">Kontak</span>
