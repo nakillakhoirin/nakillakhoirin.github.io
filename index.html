@@ -1,138 +1,261 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio | [Nama Kamu]</title>
-  <style>
-    :root {
-      --primary-color: #1f2937;
-      --accent-color: #3b82f6;
-      --bg-color: #f9fafb;
-      --text-color: #111827;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi | Desainer Freelance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variabel CSS untuk Skema Warna Dark Mode dan Aksen Hijau */
+        :root {
+            --color-dark: #1e1e1e;
+            --color-light: #ffffff;
+            --color-accent: #6ee755; /* Aksen Hijau Terang */
+            --color-text-secondary: #aaaaaa;
+            --font-primary: 'Poppins', sans-serif;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-    }
+        /* Reset Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background: var(--primary-color);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 1rem;
-    }
+        a {
+            color: var(--color-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--color-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
 
-    header p {
-      margin-top: 0.5rem;
-      color: #d1d5db;
-    }
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
 
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
+        .navbar nav a {
+            margin-left: 25px;
+            font-weight: 400;
+        }
 
-    h2 {
-      color: var(--accent-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 0.3rem;
-    }
+        .navbar nav a:hover {
+            color: var(--color-accent);
+        }
 
-    .socials a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: var(--accent-color);
-    }
+        /* Hero Section (Bagian Perkenalan) */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+            padding: 50px 5%;
+        }
 
-    .project {
-      margin: 1rem 0;
-      padding: 1rem;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      background: white;
-    }
+        .hero-content {
+            max-width: 55%;
+        }
 
-    .project h3 {
-      margin-top: 0;
-    }
+        .greeting {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
 
-    .project a {
-      text-decoration: none;
-      color: var(--accent-color);
-    }
+        .hero-content h1 {
+            font-size: 4.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
 
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin: 3rem 0 1rem;
-    }
+        .role {
+            font-size: 1.2em;
+            color: var(--color-text-secondary);
+            margin-bottom: 30px;
+        }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+        .hero-image {
+            max-width: 40%;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            /* Memastikan foto tidak terlalu jauh ke atas */
+            margin-top: -50px; 
+        }
+
+        /* Call-to-Action Buttons */
+        .cta-buttons a {
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-right: 15px;
+            display: inline-block;
+            border: 2px solid transparent;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #55c840;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--color-text-secondary);
+            color: var(--color-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Responsive Design Sederhana */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                min-height: unset;
+            }
+
+            .hero-content, .hero-image {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .hero-image img {
+                margin-top: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 3em;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-buttons a {
+                margin-right: 0;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar nav {
+                margin-top: 15px;
+            }
+            
+            .navbar nav a {
+                margin: 0 10px;
+            }
+        }
+    </style>
 </head>
 <body>
+    
+    <header class="navbar">
+        <div class="logo">Rraymond</div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <header>
-    <img src="https://via.placeholder.com/120" alt="Foto Profil" />
-    <h1>[Nama Kamu]</h1>
-    <p>Web Developer | Mobile Dev | Tech Enthusiast</p>
-    <div class="socials">
-      <a href="https://github.com/username" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
-      <a href="mailto:email@example.com">Email</a>
-    </div>
-  </header>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <p class="greeting">HELLO, I'M</p>
+            <h1>RAYMOND</h1>
+            <p class="role">FREELANCE CREATIVE DESIGNER</p>
+            
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
+                <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/300x400/1e1e1e/ffffff?text=FOTO+ANDA" alt="Foto Profil Raymond">
+        </div>
+    </section>
 
-  <section>
-    <h2>Tentang Saya</h2>
-    <p>Saya adalah seorang pengembang web yang fokus pada pengembangan aplikasi modern dengan teknologi terbaru. Saya menyukai tantangan baru dan senang belajar hal-hal baru di dunia teknologi.</p>
-  </section>
+    <section id="portfolio" style="height: 100vh; padding: 5%; text-align: center;">
+        <h2>[ BAGIAN PORTOFOLIO DI SINI ]</h2>
+        <p style="color: var(--color-text-secondary);">Tambahkan koleksi proyek-proyek Anda.</p>
+    </section>
+    
+    <section id="contact" style="height: 50vh; padding: 5%; text-align: center; background-color: #2a2a2a;">
+        <h2>[ BAGIAN KONTAK DI SINI ]</h2>
+        <p style="color: var(--color-text-secondary);">Masukkan formulir kontak dan detail Anda.</p>
+    </section>
 
-  <section>
-    <h2>Proyek</h2>
 
-    <div class="project">
-      <h3><a href="https://github.com/username/project1" target="_blank">Project 1</a></h3>
-      <p>Aplikasi To-Do List berbasis React. Menyimpan data lokal dan memiliki fitur drag & drop.</p>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const scrollThreshold = 50; 
 
-    <div class="project">
-      <h3><a href="https://github.com/username/project2" target="_blank">Project 2</a></h3>
-      <p>Website portfolio statis menggunakan HTML, CSS, dan JavaScript murni. Di-deploy ke GitHub Pages.</p>
-    </div>
+            // Efek Navbar Saat Scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > scrollThreshold) {
+                    // Navbar menjadi sedikit transparan gelap dan memiliki shadow
+                    navbar.style.backgroundColor = 'rgba(30, 30, 30, 0.95)';
+                    navbar.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.5)';
+                } else {
+                    // Kembali ke warna awal saat di bagian atas
+                    navbar.style.backgroundColor = 'var(--color-dark)';
+                    navbar.style.boxShadow = 'none';
+                }
+            });
 
-    <div class="project">
-      <h3><a href="https://github.com/username/project3" target="_blank">Project 3</a></h3>
-      <p>API sederhana menggunakan Node.js dan Express, menyimpan data dalam MongoDB.</p>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 [Nama Kamu] · Dibuat dengan ❤️ dan HTML
-  </footer>
-
+            // Opsional: Smooth Scrolling (jika browser tidak mendukung scroll-behavior: smooth)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
