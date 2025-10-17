@@ -3,487 +3,654 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raymond Freelancer Personal Portofolio | Dark Neon Theme</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+    <title>Portofolio - Nakilla Khoirin Periska | RPL Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
     <style>
-        /* ==================== */
-        /* CSS FINAL TERPADU */
-        /* ==================== */
-
-        /* Warna Dasar */
+        /* ======================================= */
+        /* CSS (STYLE) - DARK MODE THEME */
+        /* ======================================= */
+       
+        /* WARNA DARK MODE */
         :root {
-            --color-dark-bg: #111111;
-            --color-light: #ffffff;
-            --color-accent: #39ff14; /* Hijau Neon yang Khas */
-            --color-darker-card: #1c1c1c;
-            --color-text-dim: #999999;
+            --color-background-dark: #121212; /* Latar belakang utama */
+            --color-surface: #1e1e1e; /* Warna permukaan/card */
+            --color-text-primary: #ffffff; /* Teks utama */
+            --color-text-secondary: #b0b0b0; /* Teks sekunder/deskripsi */
+            --color-accent: #ff6b6b; /* Merah Muda/Salmon (Aksen Baru) */
+            --color-border: #333; /* Garis/border halus */
         }
-
-        /* Reset dan Global */
+       
+        /* RESET DASAR */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--color-dark-bg);
-            color: var(--color-light);
             line-height: 1.6;
-            overflow-x: hidden;
+            color: var(--color-text-primary);
+            background-color: var(--color-background-dark);
+            scroll-behavior: smooth;
         }
 
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        /* === Typography & Headings === */
-        h2 {
-            font-size: 2.5em;
-            color: var(--color-light);
-            margin-bottom: 50px;
-            position: relative;
-            text-align: center;
-        }
-        
-        .section-subtitle {
-            font-size: 0.3em;
+        a {
+            text-decoration: none;
             color: var(--color-accent);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
-        /* === Section & Layout === */
-        .content-section {
-            padding: 80px 0;
-            background-color: var(--color-dark-bg);
+        /* HEADER & NAVIGASI */
+        header {
+            background-color: var(--color-surface);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
-        .grid-container {
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            margin-left: 25px;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-accent);
+        }
+
+        /* TOMBOL */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn.primary {
+            background-color: var(--color-accent);
+            color: var(--color-text-primary);
+            border: none;
+        }
+
+        .btn.primary:hover {
+            background-color: #e55a5a; /* Aksen sedikit lebih gelap */
+            transform: translateY(-2px);
+        }
+
+        /* SECTION UMUM & SCROLL REVEAL */
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--color-accent);
+        }
+
+        /* HERO/PROFIL */
+        .hero {
+            background-color: var(--color-background-dark);
+            padding: 100px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            color: var(--color-text-primary);
+            margin-bottom: 10px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2em;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+       
+        .hero-content p:not(.subtitle) {
+            color: var(--color-text-secondary);
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border: 5px solid var(--color-accent);
+        }
+
+        /* PENDIDIKAN */
+        .pendidikan {
+            background-color: var(--color-background-dark);
+        }
+
+        .timeline {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+            color: var(--color-text-secondary);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            left: -29px;
+            top: 5px;
+            border: 3px solid var(--color-background-dark);
+        }
+
+        .timeline-item h3 {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .timeline-item .period {
+            color: var(--color-accent);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+       
+        /* SKILL BARU */
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+       
+        .skill-card {
+            background: var(--color-surface);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            transition: transform 0.3s;
+            border-bottom: 3px solid var(--color-accent);
+        }
+       
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: #282828;
+        }
+       
+        /* SERTIFIKAT */
+        .sertifikat-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+       
+        .sertifikat-card {
+            background: var(--color-surface);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            min-width: 250px;
+        }
+       
+        .sertifikat-card i {
+            font-size: 3em;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+       
+        .sertifikat-card h3 {
+            color: var(--color-text-primary);
+        }
+       
+        .sertifikat-card p {
+            color: var(--color-text-secondary);
+        }
+
+        /* PORTOFOLIO (Interaktif) */
+        .portofolio {
+             background-color: var(--color-surface);
+        }
+
+        .portfolio-tabs {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background-color: var(--color-accent);
+            color: var(--color-text-primary);
+        }
+
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        /* === Card Styles (Untuk Pendidikan) === */
-        .card {
-            background-color: var(--color-darker-card);
-            padding: 30px;
-            border-radius: 5px;
-            border-left: 3px solid var(--color-accent); 
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(57, 255, 20, 0.5); 
-        }
-        
-        .card h3 {
-            color: var(--color-accent);
-            font-size: 1.4em;
-            margin-bottom: 5px;
-        }
-        
-        .card .duration {
-            color: var(--color-text-dim);
-            font-style: italic;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        /* === TENTANG SAYA === */
-        .about-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            color: var(--color-text-dim);
-            font-size: 1.1em;
-        }
-        
-        .about-content strong {
-            color: var(--color-accent);
-        }
-
-        /* === KEHLIAN (SKILLS) PROGRESS BAR === */
-        .skills-bar-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .skill-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            gap: 20px;
-        }
-
-        .skill-name {
-            flex: 0 0 180px; 
-            font-weight: 600;
-            color: var(--color-light);
-            text-transform: uppercase;
-        }
-
-        .skill-bar {
-            flex-grow: 1;
-            height: 10px;
-            background-color: #333;
-            border-radius: 5px;
+        .project-card {
+            background: var(--color-background-dark);
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, opacity 0.5s;
+            display: block;
         }
-
-        .skill-progress {
-            height: 100%;
-            background-color: var(--color-accent);
-            width: 0;
-            transition: width 1.5s ease-out;
+       
+        .project-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
         }
-
-        .skill-percent {
-            flex: 0 0 40px;
-            font-weight: 700;
-            color: var(--color-accent);
-        }
-        
-        /* === PRESTASI (Disesuaikan mirip prestasi.jpg) === */
-        .achievement-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-
-        .achievement-card {
-            background-color: var(--color-darker-card);
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 5px;
-            flex: 0 0 350px; 
-            transition: transform 0.3s;
-        }
-        
-        .achievement-card:hover {
-             transform: scale(1.05);
-             box-shadow: 0 0 15px rgba(57, 255, 20, 0.7);
-        }
-
-        .achievement-card img {
+       
+        .project-card img {
             width: 100%;
-            max-width: 200px; 
-            height: auto;
-            margin-bottom: 15px;
-            border: 1px solid var(--color-accent);
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+       
+        .project-card:hover img {
+            opacity: 1;
         }
 
-        .achievement-card p {
-            color: var(--color-light);
-            font-weight: 600;
-            margin-top: 10px;
-            font-size: 0.95em;
+        .project-info {
+            padding: 20px;
         }
 
-        /* === PROJECT (Disesuaikan mirip Screenshot 2025-10-17 134617.jpg) === */
-        .project-list {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .project-item {
-            background-color: var(--color-darker-card);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border-left: 5px solid var(--color-accent);
-        }
-
-        .project-item h3 {
-            color: var(--color-light);
-            font-size: 1.5em;
+        .project-info h3 {
+            color: var(--color-text-primary);
             margin-bottom: 5px;
         }
 
-        .project-item .tech-stack {
+        .project-info .tech-stack {
             color: var(--color-accent);
             font-size: 0.9em;
             margin-bottom: 10px;
-            display: block;
+        }
+       
+        .project-info p {
+            color: var(--color-text-secondary);
         }
 
-        /* === HERO SECTION & CONTACT (Sama seperti sebelumnya) === */
-        .top-bar { padding: 30px 0; background-color: var(--color-dark-bg); position: relative; z-index: 10; }
-        .logo { font-size: 1.5em; font-weight: 700; color: var(--color-accent); text-decoration: none; display: inline-flex; align-items: center; }
-        .logo-icon { background-color: var(--color-accent); color: var(--color-dark-bg); padding: 2px 8px; border-radius: 3px; margin-right: 5px; font-size: 1.2em; }
-        .hero-section { padding: 50px 0 100px; min-height: 80vh; display: flex; align-items: center; background-color: var(--color-darker-card); border-top: 5px solid var(--color-dark-bg); }
-        .hero-inner { display: flex; justify-content: space-between; align-items: center; gap: 60px; width: 100%; }
-        .text-area { flex: 1; padding-right: 20px; }
-        .text-area .greeting { font-size: 1.2em; color: var(--color-text-dim); margin-bottom: 5px; letter-spacing: 1px; }
-        .text-area h1 { font-size: 3.8em; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
-        .hero-tagline { font-size: 1.5em; font-weight: 600; color: var(--color-light); margin-bottom: 40px; }
-        .experience-text { color: var(--color-accent); font-size: 1.2em; font-weight: 600; border-top: 1px solid #2a2a2a; padding-top: 20px; margin-top: 40px; }
-        .image-area { flex-shrink: 0; width: 350px; background-color: var(--color-darker-card); border: 1px solid #333; position: relative; align-self: flex-start; }
-        .image-area img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 450px; }
-        .photo-overlay { position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px; }
-        .icon-badge { font-size: 0.8em; background-color: var(--color-accent); color: var(--color-dark-bg); padding: 5px 10px; font-weight: 700; border-radius: 3px; }
-        .btn { display: inline-block; padding: 12px 30px; text-decoration: none; border-radius: 3px; font-weight: 600; letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; }
-        .primary-btn { background-color: var(--color-accent); color: var(--color-dark-bg); border: 2px solid var(--color-accent); }
-        .primary-btn:hover { background-color: transparent; color: var(--color-accent); box-shadow: 0 0 10px var(--color-accent); }
-        .contact-section { padding: 80px 0; background-color: var(--color-dark-bg); text-align: center; }
-        .contact-section h2::after { content: 'KONTAK'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 0.3em; color: var(--color-accent); letter-spacing: 5px; }
-        .contact-info { display: flex; justify-content: center; gap: 60px; margin-bottom: 50px; }
-        .contact-item { text-align: center; }
-        .contact-item i { font-size: 2.5em; color: var(--color-accent); margin-bottom: 15px; transition: color 0.3s; }
-        .contact-item a { color: var(--color-light); text-decoration: none; font-size: 1.1em; font-weight: 600; display: block; }
-        .contact-item span { color: var(--color-text-dim); font-size: 0.9em; display: block; }
-        .social-links-contact a { color: var(--color-text-dim); font-size: 1.5em; margin: 0 15px; transition: color 0.3s; }
-        .social-links-contact a:hover { color: var(--color-accent); }
-        
-        /* Media Queries - Disesuaikan */
-        @media (max-width: 992px) {
-            .hero-inner { flex-direction: column; text-align: center; }
-            .text-area { padding-right: 0; order: 2; }
-            .image-area { width: 90%; max-width: 400px; margin-bottom: 40px; order: 1; }
-            .contact-info { flex-direction: column; gap: 40px; }
-            .grid-container { grid-template-columns: 1fr; }
-            .skill-name { flex: 0 0 120px; }
+        .project-link {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+       
+        /* KONTAK */
+        .kontak {
+            background-color: var(--color-background-dark);
+        }
+
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: var(--color-text-secondary);
+        }
+
+        .contact-info i {
+            color: var(--color-accent);
+            margin-right: 10px;
+        }
+       
+        .contact-info a {
+            color: var(--color-text-primary);
+            transition: color 0.3s;
+        }
+       
+        .contact-info a:hover {
+            color: var(--color-accent);
+        }
+       
+        .contact-info .note {
+             color: #4CAF50; /* Hijau untuk catatan positif */
+             font-style: italic;
+             margin-top: 20px;
+        }
+
+        /* Responsif Dasar */
+        @media (max-width: 768px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+
+            header .container {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+
+            nav ul {
+                margin-top: 10px;
+            }
+
+            nav ul li a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+           
+            footer .container {
+                flex-direction: column;
+            }
+           
+            .social-links {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="container">
-            <a href="#" class="logo">
-                <span class="logo-icon">R</span> RAYMOND
-            </a>
-        </div>
-    </div>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">NAKILLA.RPL</a>
+            <ul>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#pendidikan">Edukasi</a></li>
+                <li><a href="#portofolio">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-inner">
-                
-                <div class="image-area">
-                    <img src="https://via.placeholder.com/400x500/111111/ffffff?text=FOTO+ANDA" alt="Foto Raymond">
-                    <div class="photo-overlay">
-                        <span class="icon-badge">Ai</span>
-                        <span class="icon-badge">Ps</span>
-                        <span class="icon-badge">Fg</span>
-                    </div>
+    <main>
+        <section id="profil" class="hero section-reveal">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Halo, saya **Nakilla Khoirin Periska** 👋</h1>
+                    <p class="subtitle">Siswa **RPL** dengan fokus pada **Pengembangan Web & Aplikasi Desktop**.</p>
+                    <p>Saya siswa jurusan Rekayasa Perangkat Lunak dengan minat kuat di pemrograman dan pengembangan aplikasi desktop serta web. Berpengalaman menggunakan **Python, JavaScript, Java, HTML,** dan **CSS**. Terus belajar teknologi baru dan mengasah kemampuan melalui berbagai proyek.</p>
+                    <a href="#portofolio" class="btn primary">Lihat Karya Saya</a>
                 </div>
-
-                <div class="text-area">
-                    <p class="greeting">HELLO, I'M RAYMOND</p>
-                    <h1>FREELANCE CREATIVE DESIGNER</h1>
-                    <div class="hero-tagline">
-                        Freelance Designer | UX/UI Specialist | Branding
-                    </div>
-                    <a href="#contact" style="margin-right: 15px;" class="btn primary-btn">HUBUNGI SAYA</a>
-                    <div class="experience-text">
-                        Experience Our Exceptional Design Solutions, Made Specifically For You.
-                    </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/300x300?text=Foto+Profil+Nakilla" alt="Foto Profil Nakilla">
                 </div>
-
             </div>
-        </div>
-    </section>
-
-    <section id="about" class="content-section" style="background-color: var(--color-darker-card);">
-        <div class="container">
-            <h2>
-                <span class="section-subtitle">Siapa Saya</span>
-                Tentang Saya
-            </h2>
-            <div class="about-content">
-                <p>
-                    Saya adalah **Raymond**, seorang Freelancer Designer yang berfokus pada UI/UX Design dan Branding. Saya bersemangat mengubah ide menjadi solusi digital yang menawan.
-                </p>
-                <br>
-                <p>
-                    Saya percaya bahwa desain yang efektif adalah perpaduan sempurna antara **kreativitas, data, dan teknologi**. Mari berkolaborasi untuk menghadirkan proyek Anda ke tingkat yang lebih tinggi.
-                </p>
+        </section>
+       
+        <section id="skills" class="skills section-reveal">
+            <div class="container">
+                <h2>⚙️ Teknologi Utama</h2>
+                <div class="skills-list">
+                    <div class="skill-card">Python</div>
+                    <div class="skill-card">JavaScript</div>
+                    <div class="skill-card">Java</div>
+                    <div class="skill-card">HTML5 & CSS3</div>
+                    <div class="skill-card">PHP/Laravel (Sedang Dipelajari)</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="content-section">
-        <div class="container">
-            <h2>
-                <span class="section-subtitle">Keahlian</span>
-                Keahlian Teknis
-            </h2>
-            
-            <div class="skills-bar-container">
-                
-                <div class="skill-item">
-                    <div class="skill-name">HTML</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-level="80%"></div>
+        <section id="pendidikan" class="pendidikan section-reveal">
+            <div class="container">
+                <h2>🎓 Riwayat Pendidikan</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>**SMK Informatika Utama**</h3>
+                        <p class="period">Sekarang (Kelas XI)</p>
+                        <p>Jurusan: Rekayasa Perangkat Lunak dan Gim (RPL/PPLG)</p>
                     </div>
-                    <div class="skill-percent">80%</div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-name">CSS</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-level="80%"></div>
+                    <div class="timeline-item">
+                        <h3>**SMP Utama**</h3>
+                        <p class="period">Lulus</p>
+                        <p>Tingkat: Sekolah Menengah Pertama (SMP)</p>
                     </div>
-                    <div class="skill-percent">80%</div>
                 </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">PHP</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-level="70%"></div>
-                    </div>
-                    <div class="skill-percent">70%</div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">JAVASCRIPT</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-level="75%"></div>
-                    </div>
-                    <div class="skill-percent">75%</div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">MICROSOFT OFFICE</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-level="82%"></div>
-                    </div>
-                    <div class="skill-percent">82%</div>
-                </div>
-                
             </div>
-        </div>
-    </section>
-    
-    <section class="content-section" style="background-color: var(--color-darker-card);">
-        <div class="container">
-            <div class="grid-container">
-                
-                <div>
-                    <h2>
-                        <span class="section-subtitle">Akademik</span>
-                        Pendidikan
-                    </h2>
-                    <div class="card">
-                        <h3>S1 Desain Komunikasi Visual</h3>
-                        <span class="duration">2014 - 2018 | Institut Teknologi Kreatif</span>
-                        <p>Spesialisasi Desain Interaksi. Lulus dengan predikat *Cum Laude*.</p>
+        </section>
+       
+        <section id="sertifikat" class="sertifikat section-reveal">
+            <div class="container">
+                <h2>🏅 Sertifikat</h2>
+                <div class="sertifikat-list">
+                    <div class="sertifikat-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>**Sololearn**</h3>
+                        <p>Sertifikasi/kursus online di bidang pemrograman.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h2>
-                        <span class="section-subtitle">Award</span>
-                        Prestasi
-                    </h2>
-                    <div class="achievement-grid">
-                        <div class="achievement-card">
-                            <img src="https://via.placeholder.com/200x140/333333/ffffff?text=Sertifikat+HTML" alt="Sertifikat HTML">
-                            <p>Memiliki Sertifikat Sekolah Belajar HTML</p>
-                        </div>
-                        <div class="achievement-card">
-                            <img src="https://via.placeholder.com/200x140/333333/ffffff?text=Sertifikat+CSS" alt="Sertifikat CSS">
-                            <p>Memiliki Sertifikat Sekolah Belajar CSS</p>
+        <section id="portofolio" class="portofolio section-reveal">
+            <div class="container">
+                <h2>💻 Portofolio Proyek</h2>
+
+                <div class="portfolio-tabs">
+                    <button class="tab-btn active" data-filter="all">Semua Proyek</button>
+                    <button class="tab-btn" data-filter="laravel">Laravel/PHP</button>
+                    <button class="tab-btn" data-filter="statis">Web Statis</button>
+                    <button class="tab-btn" data-filter="dasar">Aplikasi Dasar</button>
+                </div>
+
+                <div class="portfolio-grid">
+                   
+                    <div class="project-card" data-category="laravel">
+                        <img src="https://via.placeholder.com/600x400?text=Screenshot+App+Manajemen+Produk" alt="Screenshot Aplikasi Manajemen Produk">
+                        <div class="project-info">
+                            <h3>**Manajemen Produk Web** (Progress)</h3>
+                            <p class="tech-stack">**Tech Stack:** PHP (Laravel), AdminLTE, MySQL</p>
+                            <p>Proyek kelas XI: Aplikasi berbasis web untuk mengelola data *inventory* produk dan laporan. **Sedang dalam proses pengembangan.**</p>
+                            <a href="#" target="_blank" class="project-link">Lihat Status Proyek <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
+
+                    <div class="project-card" data-category="statis">
+                        <img src="https://via.placeholder.com/600x400?text=Screenshot+Web+Statis+1" alt="Screenshot Web Statis 1">
+                        <div class="project-info">
+                            <h3>**Web Statis Pribadi (Versi 1)**</h3>
+                            <p class="tech-stack">**Tech Stack:** HTML5, CSS3</p>
+                            <p>Web statis pertama yang dibuat di Kelas X untuk menampilkan informasi diri.</p>
+                            <a href="#" target="_blank" class="project-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                   
+                    <div class="project-card" data-category="statis">
+                        <img src="https://via.placeholder.com/600x400?text=Screenshot+Web+Statis+2" alt="Screenshot Web Statis 2">
+                        <div class="project-info">
+                            <h3>**Web Statis Tema Bisnis (Versi 2)**</h3>
+                            <p class="tech-stack">**Tech Stack:** HTML5, CSS3 (Responsif)</p>
+                            <p>Web statis kedua yang fokus pada *layout* yang lebih terstruktur dan responsif.</p>
+                            <a href="#" target="_blank" class="project-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="dasar">
+                        <img src="https://via.placeholder.com/600x400?text=Screenshot+Kalkulator+Python" alt="Screenshot Kalkulator Sederhana">
+                        <div class="project-info">
+                            <h3>**Aplikasi Kalkulator Sederhana**</h3>
+                            <p class="tech-stack">**Tech Stack:** Python atau Java</p>
+                            <p>Program dasar untuk operasi aritmatika (tambah, kurang, kali, bagi).</p>
+                            <a href="#" target="_blank" class="project-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+       
+        <section id="kontak" class="kontak section-reveal">
+            <div class="container">
+                <h2>✉️ Hubungi Saya</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:peni84017@gmail.com">peni84017@gmail.com</a></p>
+                    <p><i class="fas fa-phone-alt"></i> Telepon: <a href="tel:+6281341690719">+62 813-4169-0719</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl.H.Mujar No.372, RT 01, RW 004, Cinere, Depok.</p>
+                    <br>
+                    <p class="note">**Informasi Tambahan:** Saat ini fokus pada pengembangan RPL, tidak ada pengalaman organisasi.</p>
+                </div>
+            </div>
+        </section>
+       
+    </main>
 
-    <section id="projects" class="content-section">
+    <footer>
         <div class="container">
-            <h2>
-                <span class="section-subtitle">Karya</span>
-                Proyek Pilihan
-            </h2>
-            <div class="project-list">
-                <div class="project-item">
-                    <h3>Membuat Web Store Toko Online</h3>
-                    <span class="tech-stack">Menggunakan HTML, CSS, dan JS, dilengkapi *e-commerce* dan fitur keranjang sederhana.</span>
-                    <p>Mengembangkan *front-end* untuk platform penjualan produk digital dengan fokus pada kecepatan *loading* dan navigasi yang mudah.</p>
-                </div>
-                <div class="project-item">
-                    <h3>Membuat Sistem Informasi Web</h3>
-                    <span class="tech-stack">Menggunakan Laravel dan AdminLTE.</span>
-                    <p>Merancang dan membangun *dashboard* manajemen untuk keperluan internal perusahaan, meliputi pengelolaan data inventaris dan laporan bulanan.</p>
-                </div>
-                <div class="project-item">
-                    <h3>Desain Aplikasi Mobile Banking</h3>
-                    <span class="tech-stack">UI/UX Design, Figma, Prototyping.</span>
-                    <p>Proyek redesign aplikasi *mobile banking* untuk meningkatkan *user experience* dan menyederhanakan proses transaksi yang kompleks.</p>
-                </div>
-            </div>
-            
-            <a href="#" class="btn primary-btn" style="margin-top: 50px;">LIHAT SEMUA PROYEK</a>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section" style="background-color: var(--color-darker-card);">
-        <div class="container">
-            <h2>
-                <span class="section-subtitle">Kontak</span>
-                Dapatkan Penawaran Terbaik
-            </h2>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>Hubungi Saya Kapan Saja</span>
-                    <a href="tel:+628123456789">+62 812 3456 789</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>Kirim Email Anda</span>
-                    <a href="mailto:halo@emailanda.com">halo@emailanda.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Lokasi Saya</span>
-                    <a href="#">Jakarta, Indonesia</a>
-                </div>
-            </div>
-            
-            <div class="social-links-contact">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+            <p>&copy; 2025 Nakilla Khoirin Periska. Rekayasa Perangkat Lunak.</p>
+            <div class="social-links">
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:peni84017@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-    </section>
+    </footer>
 
     <script>
-        // Fungsi untuk menjalankan animasi progress bar
-        function animateSkills() {
-            const skills = document.querySelectorAll('.skill-progress');
-            skills.forEach(skill => {
-                const level = skill.getAttribute('data-level');
-                // Atur lebar CSS untuk memicu transisi (animasi)
-                skill.style.width = level;
+        // =======================================
+        // JAVASCRIPT (SCRIPT)
+        // =======================================
+       
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Interaksi Tab Portofolio ---
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            const filterProjects = (filter) => {
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, 500);
+                    }
+                });
+            };
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Kelola kelas 'active' pada tombol
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    filterProjects(filter);
+                });
             });
-        }
-        
-        // Panggil fungsi saat dokumen selesai dimuat
-        document.addEventListener('DOMContentLoaded', animateSkills);
+           
+            // Panggil filter 'all' saat pertama kali dimuat
+            document.querySelector('.tab-btn[data-filter="all"]').click();
+
+            // --- 2. Efek Scroll Reveal Sederhana ---
+            const sections = document.querySelectorAll('.section-reveal');
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px"
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
     </script>
 </body>
 </html>
