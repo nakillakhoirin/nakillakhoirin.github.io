@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raymond | Freelance Designer Portfolio</title>
+    <title>Raymond | Gabungan Gaya Portofolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -20,6 +20,7 @@
             --color-accent-green: #79f064;
             --font-primary: 'Poppins', sans-serif;
             --font-display: 'Shadows Into Light Two', cursive;
+            --color-bg-light: #f5f5f5; /* Warna untuk Keahlian Section */
         }
 
         * {
@@ -43,7 +44,9 @@
             transition: color 0.3s;
         }
 
-        /* Navigasi, Hero, dan Buttons - Tetap sama */
+        /* ==================================== */
+        /* 2. NAVIGATION, HERO, BUTTONS (Gaya LIO.JFIF) */
+        /* ==================================== */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -68,32 +71,10 @@
             letter-spacing: 1px;
             color: var(--color-accent-green);
         }
-
-        .navbar nav a {
-            margin-left: 35px;
-            font-size: 0.95em;
-            font-weight: 500;
-            padding: 5px 0;
-            position: relative;
-        }
         
-        .navbar nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-accent-green);
-            transition: width 0.3s ease;
-        }
-
-        .navbar nav a:hover::after,
-        .navbar nav a.active::after {
-            width: 100%;
-        }
-
+        /* Hero Section (Diubah mengikuti Lio.jfif) */
         .hero-section {
+            background-color: var(--color-bg-dark);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -101,102 +82,52 @@
             padding: 100px 7%;
             gap: 50px;
         }
-
-        .hero-content h1 {
-            font-size: 4.8em;
-            font-weight: 800;
-            margin-bottom: 5px;
-            line-height: 1.1;
+        .hero-content { flex: 1; max-width: 50%; }
+        .hero-content h1 { font-size: 4.8em; font-weight: 800; line-height: 1.1; }
+        .hero-content .role { color: var(--color-text-secondary); }
+        .hero-image-container { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            max-width: 50%;
+            position: relative;
         }
-
-        .hero-image-container {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            border: 5px solid var(--color-surface-dark); 
-            border-radius: 10px;
-            padding: 15px; 
-            max-width: 450px;
-        }
-
         .hero-image-container img {
             width: 100%;
+            max-width: 450px;
             height: auto;
-            display: block;
-            border-radius: 5px; 
+            border-radius: 10px; 
+            border: 3px solid var(--color-accent-green);
         }
 
-        .cta-buttons a {
-            padding: 14px 35px;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-right: 20px;
-            display: inline-block;
-            border: 2px solid transparent;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
+        .btn-primary { background-color: var(--color-accent-green); color: var(--color-bg-dark); }
+        .btn-secondary { background-color: transparent; border-color: var(--color-text-secondary); color: var(--color-text-light); }
 
-        .btn-primary {
-            background-color: var(--color-accent-green);
-            color: var(--color-bg-dark);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            border-color: var(--color-text-secondary);
-            color: var(--color-text-light);
-        }
-        
-        section {
-            padding: 100px 7%;
-        }
-
-        .section-title {
-            font-size: 2.5em; 
-            margin-bottom: 50px; 
-            text-align: center;
-        }
+        section { padding: 100px 7%; }
+        .section-title { font-size: 2.5em; margin-bottom: 50px; text-align: center; }
         
         /* ==================================== */
-        /* 5. STYLING KUSTOM KEAHLIAN/PRESTASI  */
+        /* 3. KEAHLIAN (Gaya Scrapbook Lianas)  */
         /* ==================================== */
-
-        /* 5a. KEAHLIAN (Background dan Dekorasi) */
         #about {
-            background-image: url('https://via.placeholder.com/1920x1080/1c1c1c/ffffff?text=Background+Pattern');
+            background-color: var(--color-bg-light); /* Background terang */
+            background-image: url('https://via.placeholder.com/1920x1080/f5f5f5/cccccc?text=Light+Paper+Texture');
             background-size: cover;
             background-position: center;
             position: relative;
             overflow: hidden;
-            padding-top: 50px;
-            padding-bottom: 100px;
+            color: #141414; /* Teks gelap di background terang */
         }
+        #about p, #about h2 { color: #141414; }
 
-        #about::before { 
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(20, 20, 20, 0.6);
-            z-index: 1;
-        }
-        #about > * { 
-            position: relative;
-            z-index: 2;
-        }
-
-        .keahlian-title, .prestasi-title {
+        .keahlian-title {
             font-family: var(--font-display);
             font-size: 5em;
-            color: var(--color-text-light);
+            color: #141414; /* Judul gelap */
             text-align: center;
             margin-bottom: 20px;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         /* Dekorasi KEAHLIAN */
@@ -211,18 +142,14 @@
         }
         .decor-item {
             position: absolute;
-            opacity: 0.7;
-            filter: grayscale(100%);
+            opacity: 0.8;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
         }
-        .decor-item img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        .decor-item img { max-width: 100%; height: auto; display: block; }
         .decor-tape-left { top: 10%; left: 5%; width: 120px; transform: rotate(-10deg); }
         .decor-leaf-right { top: 8%; right: 3%; width: 150px; transform: rotate(20deg); }
-        .decor-texture-top-right { top: 0; right: 0; width: 300px; opacity: 0.6; }
         .decor-paper-bottom-left { bottom: 5%; left: 10%; width: 200px; transform: rotate(5deg); }
+
 
         .skills-container {
             max-width: 800px;
@@ -231,28 +158,23 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            background-color: rgba(28, 28, 28, 0.7);
+            background-color: rgba(255, 255, 255, 0.7); /* Transparan putih */
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .skill-item { margin-bottom: 10px; }
-        .skill-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 1.1em; font-weight: 500; }
-        .skill-percentage { color: var(--color-accent-green); font-weight: 600; }
-        .progress-bar-bg { background-color: var(--color-bg-dark); height: 8px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .skill-name { color: #141414; }
+        .progress-bar-bg { background-color: #cccccc; height: 8px; border-radius: 4px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background-color: var(--color-accent-green); border-radius: 4px; width: 0; transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
 
-        /* 5b. PENGALAMAN & PRESTASI (Background dan Card) */
+        /* ==================================== */
+        /* 4. RIWAYAT (PENGALAMAN & PENDIDIKAN) */
+        /* ==================================== */
         #experience {
-            background-color: var(--color-bg-dark); /* Kembali ke warna gelap dasar */
-            background-image: url('https://via.placeholder.com/1920x1080/1c1c1c/000000?text=Dark+Texture'); /* Tekstur gelap */
-            background-size: cover;
-            position: relative;
+            background-color: var(--color-surface-dark);
         }
-        
-        /* Gaya Card Umum */
+
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -266,83 +188,82 @@
             padding: 30px;
             border-radius: 8px;
             transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
-        /* Card Prestasi Kustom */
+        .card-header h3 { color: var(--color-accent-green); }
+        .card-description { color: var(--color-text-secondary); }
+
+
+        /* ==================================== */
+        /* 5. PRESTASI (Gaya Scrapbook Gelap)   */
+        /* ==================================== */
+        #achievements {
+            background-color: var(--color-bg-dark);
+            background-image: url('https://via.placeholder.com/1920x1080/141414/222222?text=Dark+Scratch+Texture');
+            background-size: cover;
+            position: relative;
+        }
+        
+        .prestasi-title {
+            font-family: var(--font-display);
+            font-size: 5em;
+            color: var(--color-text-light);
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        }
+        
         .prestasi-grid {
-            grid-column: 1 / -1; /* Mengambil seluruh lebar */
             display: flex;
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
-            margin-top: 50px;
         }
         .prestasi-card {
-            background-color: #000000;
+            background-color: #333333; /* Warna gelap */
             width: 350px;
             padding: 50px 30px 30px;
             text-align: center;
             position: relative;
             box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-            /* Meniru efek kertas sobek menggunakan background */
-            background-image: url('https://i.imgur.com/cWp4v8X.png'); /* Ganti dengan gambar kertas sobek Anda */
-            background-size: cover;
-            background-position: center;
-            color: #141414; /* Warna teks yang kontras dengan kertas */
+            /* Efek kertas sobek/tekstur */
+            border-radius: 5px;
             transform: rotate(-1deg);
+            border: 2px dashed #777;
         }
         .prestasi-card img {
             max-width: 90%;
             height: auto;
             margin: 0 auto 15px;
-            border: 2px solid #333;
+            border: 2px solid #555;
         }
         .prestasi-card p {
-            color: #333;
-            font-weight: 600;
+            color: var(--color-text-light);
+            font-weight: 500;
         }
-        
+
         /* ==================================== */
-        /* 6. CONTACT SECTION - Tetap sama      */
+        /* 6. PROJECT & CONTACT - Gaya Profesional */
         /* ==================================== */
-        .contact-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        #portfolio { background-color: var(--color-surface-dark); }
+        #contact { background-color: var(--color-bg-dark); }
         
+        .project-image-container { height: 250px; overflow: hidden; }
+        .project-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .content-card:hover .project-image { transform: scale(1.05); }
+
         .contact-card-detail {
             background-color: var(--color-surface-dark);
-            padding: 30px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 380px;
-            text-align: left;
             border-left: 5px solid var(--color-accent-green);
-            transition: transform 0.3s ease;
         }
-        
-        /* ==================================== */
-        /* 7. RESPONSIVE DESIGN                 */
-        /* ==================================== */
+
+        /* Responsive - Tetap */
         @media (max-width: 768px) {
-            .keahlian-title, .prestasi-title {
-                font-size: 3.5em;
-            }
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            .prestasi-card {
-                width: 100%;
-                max-width: 350px;
-            }
-            .decor-item {
-                display: none; /* Sembunyikan dekorasi di mobile */
-            }
+            .hero-section { flex-direction: column; text-align: center; }
+            .hero-content, .hero-image-container { max-width: 100%; }
+            .keahlian-title, .prestasi-title { font-size: 3.5em; }
+            .skills-container { grid-template-columns: 1fr; }
+            .decor-item { display: none; }
         }
     </style>
 </head>
@@ -352,8 +273,9 @@
         <div class="logo">RAYMOND</div>
         <nav>
             <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
+            <a href="#about">Keahlian</a>
+            <a href="#experience">Riwayat</a>
+            <a href="#achievements">Prestasi</a>
             <a href="#portfolio">Project</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -371,36 +293,26 @@
             </div>
         </div>
         <div class="hero-image-container">
-            <img src="https://via.placeholder.com/400x550/1c1c1c/ffffff?text=FOTO+ANDA" alt="Foto Profil Raymond">
+            <img src="https://via.placeholder.com/450x500/141414/79f064?text=FOTO+ANDA" alt="Foto Profil Raymond">
         </div>
     </section>
 
     <section id="about">
         
         <div class="decorative-elements">
-            <div class="decor-item decor-tape-left">
-                <img src="https://i.imgur.com/rL7U1Jc.png" alt="Decorative Tape"> 
-            </div>
-            <div class="decor-item decor-leaf-right">
-                <img src="https://i.imgur.com/w1A7f1w.png" alt="Decorative Leaf"> 
-            </div>
-            <div class="decor-item decor-texture-top-right">
-                <img src="https://i.imgur.com/vH1WjPz.png" alt="Abstract Texture"> 
-            </div>
-            <div class="decor-item decor-paper-bottom-left">
-                <img src="https://i.imgur.com/cWp4v8X.png" alt="Torn Paper"> 
-            </div>
+            <div class="decor-item decor-tape-left"><img src="https://i.imgur.com/rL7U1Jc.png" alt="Decorative Tape"></div>
+            <div class="decor-item decor-leaf-right"><img src="https://i.imgur.com/w1A7f1w.png" alt="Decorative Leaf"></div>
+            <div class="decor-item decor-paper-bottom-left"><img src="https://i.imgur.com/cWp4v8X.png" alt="Torn Paper"></div>
         </div>
 
         <h2 class="section-title">TENTANG SAYA</h2>
-        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center; color: var(--color-text-light);">
+        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center;">
             Sebagai Desainer Kreatif Freelance, saya fokus pada UI/UX dan branding digital. 
             Misi saya adalah mengubah ide menjadi solusi visual yang memukau dan berfungsi.
         </p>
         
         <h3 class="keahlian-title">KEAHLIAN</h3> 
         <div class="skills-container">
-
             <div class="skill-item" data-percent="90">
                 <div class="skill-header">
                     <span class="skill-name">HTML</span>
@@ -445,7 +357,7 @@
     </section>
     
     <section id="experience">
-        <h2 class="section-title" style="color: var(--color-accent-green);">RIWAYAT SAYA</h2>
+        <h2 class="section-title" style="color: var(--color-accent-green);">RIWAYAT SAYA (PENGALAMAN & PENDIDIKAN)</h2>
         
         <div class="content-grid">
             <div class="content-card">
@@ -454,7 +366,7 @@
                     <span class="card-date">2022 - Sekarang</span>
                 </div>
                 <p class="card-location">PT. Kreatif Solusi (Pengalaman)</p>
-                <p class="card-description">Memimpin tim desain dalam mengembangkan produk web dan mobile, berhasil meningkatkan retensi pengguna sebesar 25% melalui perancangan ulang antarmuka.</p>
+                <p class="card-description">Memimpin tim desain dalam mengembangkan produk web dan mobile, berhasil meningkatkan retensi pengguna sebesar 25%.</p>
             </div>
             
             <div class="content-card">
@@ -463,7 +375,7 @@
                     <span class="card-date">2020 - 2022</span>
                 </div>
                 <p class="card-location">Studio Desain Cepat (Pengalaman)</p>
-                <p class="card-description">Bertanggung jawab untuk desain landing page dan implementasi front-end menggunakan Elementor dan Bootstrap.</p>
+                <p class="card-description">Bertanggung jawab untuk desain landing page dan implementasi front-end.</p>
             </div>
             
             <div class="content-card">
@@ -480,13 +392,15 @@
                     <h3>Sertifikasi Profesional</h3>
                     <span class="card-date">2023</span>
                 </div>
-                <p class="card-location">Google UX Design Professional Certificate</p>
-                <p class="card-description">Sertifikasi komprehensif dalam proses desain UX, dari ideasi hingga pengujian dan *high-fidelity prototyping*.</p>
+                <p class="card-location">Google UX Design Professional Certificate (Pendidikan Tambahan)</p>
+                <p class="card-description">Sertifikasi komprehensif dalam proses desain UX, dari ideasi hingga pengujian.</p>
             </div>
         </div>
-        
+    </section>
+    
+    <section id="achievements">
         <h3 class="prestasi-title">PRESTASI</h3>
-        <div class="content-grid prestasi-grid">
+        <div class="prestasi-grid">
             
             <div class="prestasi-card">
                 <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Sertifikat+HTML" alt="Sertifikat HTML">
@@ -577,7 +491,6 @@
     </section>
 
     <script>
-        // Fungsi Khusus untuk Animasi Progress Bar
         function animateProgressBars() {
             const skillsContainer = document.querySelector('.skills-container');
             if (!skillsContainer) return;
@@ -615,6 +528,7 @@
                 // Menandai link navigasi yang aktif
                 let current = '';
                 document.querySelectorAll('section').forEach(section => {
+                    // Cek section achievements (yang baru) dan pastikan urutan pengecekan benar
                     const sectionTop = section.offsetTop - navbar.offsetHeight - 50; 
                     if (window.scrollY >= sectionTop) {
                         current = section.getAttribute('id');
