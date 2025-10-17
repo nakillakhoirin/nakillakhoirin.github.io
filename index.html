@@ -15,10 +15,10 @@
 
         /* Warna Dasar */
         :root {
-            --color-dark-bg: #111111; /* Latar Belakang Hitam Pekat */
+            --color-dark-bg: #111111;
             --color-light: #ffffff;
-            --color-accent: #39ff14; /* Hijau Neon yang Khas */
-            --color-darker-card: #1c1c1c; /* Latar belakang kartu/konten */
+            --color-accent: #39ff14;
+            --color-darker-card: #1c1c1c;
             --color-text-dim: #999999;
         }
 
@@ -103,10 +103,21 @@
             display: block;
             margin-bottom: 15px;
         }
+
+        /* === TENTANG SAYA (Baru) === */
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--color-text-dim);
+            font-size: 1.1em;
+        }
         
-        /* ------------------------------------- */
+        .about-content strong {
+            color: var(--color-accent);
+        }
+
         /* === KEHLIAN (SKILLS) BARU DENGAN PROGRESS BAR === */
-        /* ------------------------------------- */
         .skills-bar-container {
             max-width: 800px;
             margin: 0 auto;
@@ -120,7 +131,7 @@
         }
 
         .skill-name {
-            flex: 0 0 180px; /* Lebar tetap untuk nama skill */
+            flex: 0 0 180px; 
             font-weight: 600;
             color: var(--color-light);
             text-transform: uppercase;
@@ -137,8 +148,8 @@
         .skill-progress {
             height: 100%;
             background-color: var(--color-accent);
-            width: 0; /* Mulai dari 0 untuk animasi */
-            transition: width 1.5s ease-out; /* Animasi progres */
+            width: 0;
+            transition: width 1.5s ease-out;
         }
 
         .skill-percent {
@@ -162,7 +173,7 @@
         }
 
         .achievement-list li:before {
-            content: "\f00c"; /* Icon checkmark */
+            content: "\f00c";
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             color: var(--color-accent);
@@ -258,6 +269,24 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="content-section" style="background-color: var(--color-darker-card);">
+        <div class="container">
+            <h2>
+                <span class="section-subtitle">Siapa Saya</span>
+                Tentang Saya
+            </h2>
+            <div class="about-content">
+                <p>
+                    Saya adalah **Raymond**, seorang Freelancer Designer berpengalaman lebih dari 5 tahun dalam mengubah ide menjadi solusi digital yang menawan. Fokus utama saya adalah menciptakan pengalaman pengguna (UX) yang intuitif dan desain antarmuka (UI) yang estetis, terutama dalam mode gelap.
+                </p>
+                <br>
+                <p>
+                    Saya percaya bahwa desain yang efektif adalah perpaduan sempurna antara **kreativitas, data, dan teknologi**. Mari berkolaborasi untuk menghadirkan proyek Anda ke tingkat yang lebih tinggi.
+                </p>
             </div>
         </div>
     </section>
@@ -444,7 +473,6 @@
         function animateSkills() {
             const skills = document.querySelectorAll('.skill-progress');
             skills.forEach(skill => {
-                // Ambil nilai persentase dari atribut data-level
                 const level = skill.getAttribute('data-level');
                 // Atur lebar CSS untuk memicu transisi (animasi)
                 skill.style.width = level;
