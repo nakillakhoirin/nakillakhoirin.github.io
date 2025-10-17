@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raymond | Freelance Designer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -12,12 +13,13 @@
         /* 1. ROOT & RESET                      */
         /* ==================================== */
         :root {
-            --color-bg-dark: #141414; /* Background Sangat Gelap */
-            --color-surface-dark: #1c1c1c; /* Permukaan Sedikit Lebih Terang */
+            --color-bg-dark: #141414;
+            --color-surface-dark: #1c1c1c;
             --color-text-light: #ffffff;
             --color-text-secondary: #a0a0a0;
-            --color-accent-green: #79f064; /* Aksen Hijau Neon */
+            --color-accent-green: #79f064;
             --font-primary: 'Poppins', sans-serif;
+            --font-display: 'Shadows Into Light Two', cursive;
         }
 
         * {
@@ -32,6 +34,7 @@
             color: var(--color-text-light);
             line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         a {
@@ -40,9 +43,7 @@
             transition: color 0.3s;
         }
 
-        /* ==================================== */
-        /* 2. NAVIGATION BAR                    */
-        /* ==================================== */
+        /* Navigasi, Hero, dan Buttons - Tetap sama */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -92,9 +93,6 @@
             width: 100%;
         }
 
-        /* ==================================== */
-        /* 3. HERO SECTION                      */
-        /* ==================================== */
         .hero-section {
             display: flex;
             align-items: center;
@@ -104,31 +102,11 @@
             gap: 50px;
         }
 
-        .hero-content {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .greeting {
-            font-size: 1.2em;
-            font-weight: 500;
-            color: var(--color-accent-green);
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
         .hero-content h1 {
             font-size: 4.8em;
             font-weight: 800;
             margin-bottom: 5px;
             line-height: 1.1;
-        }
-
-        .role {
-            font-size: 1.4em;
-            color: var(--color-text-secondary);
-            font-weight: 300;
-            margin-bottom: 40px;
         }
 
         .hero-image-container {
@@ -149,9 +127,6 @@
             border-radius: 5px; 
         }
 
-        /* ==================================== */
-        /* 4. GENERAL SECTION & BUTTONS         */
-        /* ==================================== */
         .cta-buttons a {
             padding: 14px 35px;
             border-radius: 8px;
@@ -168,24 +143,12 @@
             color: var(--color-bg-dark);
         }
 
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--color-accent-green);
-            border-color: var(--color-accent-green);
-            box-shadow: 0 0 15px rgba(121, 240, 100, 0.4);
-        }
-
         .btn-secondary {
             background-color: transparent;
             border-color: var(--color-text-secondary);
             color: var(--color-text-light);
         }
-
-        .btn-secondary:hover {
-            border-color: var(--color-accent-green);
-            color: var(--color-accent-green);
-        }
-
+        
         section {
             padding: 100px 7%;
         }
@@ -197,8 +160,99 @@
         }
         
         /* ==================================== */
-        /* 5. CONTENT SECTIONS (NEW)            */
+        /* 5. STYLING KUSTOM KEAHLIAN/PRESTASI  */
         /* ==================================== */
+
+        /* 5a. KEAHLIAN (Background dan Dekorasi) */
+        #about {
+            background-image: url('https://via.placeholder.com/1920x1080/1c1c1c/ffffff?text=Background+Pattern');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 50px;
+            padding-bottom: 100px;
+        }
+
+        #about::before { 
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.6);
+            z-index: 1;
+        }
+        #about > * { 
+            position: relative;
+            z-index: 2;
+        }
+
+        .keahlian-title, .prestasi-title {
+            font-family: var(--font-display);
+            font-size: 5em;
+            color: var(--color-text-light);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        }
+
+        /* Dekorasi KEAHLIAN */
+        .decorative-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .decor-item {
+            position: absolute;
+            opacity: 0.7;
+            filter: grayscale(100%);
+        }
+        .decor-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .decor-tape-left { top: 10%; left: 5%; width: 120px; transform: rotate(-10deg); }
+        .decor-leaf-right { top: 8%; right: 3%; width: 150px; transform: rotate(20deg); }
+        .decor-texture-top-right { top: 0; right: 0; width: 300px; opacity: 0.6; }
+        .decor-paper-bottom-left { bottom: 5%; left: 10%; width: 200px; transform: rotate(5deg); }
+
+        .skills-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: rgba(28, 28, 28, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .skill-item { margin-bottom: 10px; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 1.1em; font-weight: 500; }
+        .skill-percentage { color: var(--color-accent-green); font-weight: 600; }
+        .progress-bar-bg { background-color: var(--color-bg-dark); height: 8px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .progress-bar-fill { height: 100%; background-color: var(--color-accent-green); border-radius: 4px; width: 0; transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
+
+        /* 5b. PENGALAMAN & PRESTASI (Background dan Card) */
+        #experience {
+            background-color: var(--color-bg-dark); /* Kembali ke warna gelap dasar */
+            background-image: url('https://via.placeholder.com/1920x1080/1c1c1c/000000?text=Dark+Texture'); /* Tekstur gelap */
+            background-size: cover;
+            position: relative;
+        }
+        
+        /* Gaya Card Umum */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -212,102 +266,45 @@
             padding: 30px;
             border-radius: 8px;
             transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-header {
+        /* Card Prestasi Kustom */
+        .prestasi-grid {
+            grid-column: 1 / -1; /* Mengambil seluruh lebar */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .card-header h3 {
-            font-size: 1.2em;
-            color: var(--color-accent-green);
-        }
-        
-        .card-date {
-            font-size: 0.9em;
-            color: var(--color-text-secondary);
-        }
-
-        .card-location {
-            font-size: 0.95em;
-            color: var(--color-text-light);
-            margin-top: 5px;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        
-        .card-description {
-            font-size: 0.9em;
-            color: var(--color-text-secondary);
-        }
-
-        /* Skills/Keahlian Styling */
-        .skills-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
             justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
         }
-        
-        .skill-tag {
-            background-color: var(--color-surface-dark);
-            color: var(--color-accent-green);
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            font-weight: 500;
-            border: 1px solid rgba(121, 240, 100, 0.3);
-            transition: background-color 0.3s;
-        }
-        
-        .skill-tag:hover {
-            background-color: var(--color-accent-green);
-            color: var(--color-bg-dark);
-        }
-
-        /* Project Card Styling */
-        #portfolio .content-card {
-            border: none;
+        .prestasi-card {
+            background-color: #000000;
+            width: 350px;
+            padding: 50px 30px 30px;
             text-align: center;
-            padding: 0;
-            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            /* Meniru efek kertas sobek menggunakan background */
+            background-image: url('https://i.imgur.com/cWp4v8X.png'); /* Ganti dengan gambar kertas sobek Anda */
+            background-size: cover;
+            background-position: center;
+            color: #141414; /* Warna teks yang kontras dengan kertas */
+            transform: rotate(-1deg);
         }
-
-        .project-image-container {
-            height: 250px;
-            overflow: hidden;
+        .prestasi-card img {
+            max-width: 90%;
+            height: auto;
+            margin: 0 auto 15px;
+            border: 2px solid #333;
+        }
+        .prestasi-card p {
+            color: #333;
+            font-weight: 600;
         }
         
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .content-card:hover .project-image {
-            transform: scale(1.05);
-        }
-        
-        .project-info {
-            padding: 20px;
-            text-align: left;
-            background-color: var(--color-surface-dark);
-        }
-
         /* ==================================== */
-        /* 6. CONTACT SECTION SPESIFIK (Reused) */
+        /* 6. CONTACT SECTION - Tetap sama      */
         /* ==================================== */
         .contact-content {
             display: flex;
@@ -318,7 +315,7 @@
             margin: 0 auto;
         }
         
-        .contact-card {
+        .contact-card-detail {
             background-color: var(--color-surface-dark);
             padding: 30px;
             border-radius: 8px;
@@ -328,79 +325,23 @@
             border-left: 5px solid var(--color-accent-green);
             transition: transform 0.3s ease;
         }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: var(--color-accent-green);
-        }
-
-        .contact-card p, .contact-card a.contact-detail {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: var(--color-text-light);
-        }
-
-        .contact-card a.contact-detail:hover {
-            color: var(--color-accent-green);
-        }
-
-        .contact-card i {
-            margin-right: 15px;
-            font-size: 1.2em;
-            width: 25px;
-            text-align: center;
-            color: var(--color-accent-green);
-        }
-
-        .social-links {
-            margin-top: 20px;
-            text-align: center;
-            width: 100%;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 1.8em;
-            color: var(--color-text-secondary);
-        }
-
-        .social-links a:hover {
-            color: var(--color-accent-green);
-            transform: scale(1.1);
-        }
-
+        
         /* ==================================== */
-        /* 7. RESPONSIVE DESIGN (Revisi)        */
+        /* 7. RESPONSIVE DESIGN                 */
         /* ==================================== */
         @media (max-width: 768px) {
-            .navbar nav {
-                display: none;
+            .keahlian-title, .prestasi-title {
+                font-size: 3.5em;
             }
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 100px 5% 50px;
+            .skills-container {
+                grid-template-columns: 1fr;
             }
-            .hero-content {
-                max-width: 100%;
+            .prestasi-card {
+                width: 100%;
+                max-width: 350px;
             }
-            .hero-image-container {
-                max-width: 300px;
-            }
-            .cta-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .contact-card, .skills-list {
-                max-width: 100%;
+            .decor-item {
+                display: none; /* Sembunyikan dekorasi di mobile */
             }
         }
     </style>
@@ -434,36 +375,85 @@
         </div>
     </section>
 
-    <section id="about" style="background-color: var(--color-surface-dark);">
+    <section id="about">
+        
+        <div class="decorative-elements">
+            <div class="decor-item decor-tape-left">
+                <img src="https://i.imgur.com/rL7U1Jc.png" alt="Decorative Tape"> 
+            </div>
+            <div class="decor-item decor-leaf-right">
+                <img src="https://i.imgur.com/w1A7f1w.png" alt="Decorative Leaf"> 
+            </div>
+            <div class="decor-item decor-texture-top-right">
+                <img src="https://i.imgur.com/vH1WjPz.png" alt="Abstract Texture"> 
+            </div>
+            <div class="decor-item decor-paper-bottom-left">
+                <img src="https://i.imgur.com/cWp4v8X.png" alt="Torn Paper"> 
+            </div>
+        </div>
+
         <h2 class="section-title">TENTANG SAYA</h2>
-        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center; color: var(--color-text-secondary);">
+        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center; color: var(--color-text-light);">
             Sebagai Desainer Kreatif Freelance, saya fokus pada UI/UX dan branding digital. 
-            Misi saya adalah mengubah ide menjadi solusi visual yang memukau dan berfungsi, didukung oleh pengalaman bertahun-tahun dalam industri teknologi.
+            Misi saya adalah mengubah ide menjadi solusi visual yang memukau dan berfungsi.
         </p>
         
-        <h3 class="section-title" style="font-size: 2em; margin-bottom: 30px;">Keahlian Teknis</h3>
-        <div class="skills-list">
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Wireframing</span>
-            <span class="skill-tag">Prototyping</span>
-            <span class="skill-tag">Branding</span>
-            <span class="skill-tag">HTML5 & CSS3</span>
-            <span class="skill-tag">Responsive Design</span>
-            <span class="skill-tag">Adobe Creative Suite</span>
+        <h3 class="keahlian-title">KEAHLIAN</h3> 
+        <div class="skills-container">
+
+            <div class="skill-item" data-percent="90">
+                <div class="skill-header">
+                    <span class="skill-name">HTML</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 0;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item" data-percent="75">
+                <div class="skill-header">
+                    <span class="skill-name">PHP</span>
+                    <span class="skill-percentage">75%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 0;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item" data-percent="85">
+                <div class="skill-header">
+                    <span class="skill-name">CSS</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 0;"></div>
+                </div>
+            </div>
+
+            <div class="skill-item" data-percent="88">
+                <div class="skill-header">
+                    <span class="skill-name">Microsoft Office</span>
+                    <span class="skill-percentage">88%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 0;"></div>
+                </div>
+            </div>
+
         </div>
     </section>
     
     <section id="experience">
-        <h2 class="section-title" style="color: var(--color-accent-green);">PENGALAMAN & PENDIDIKAN</h2>
+        <h2 class="section-title" style="color: var(--color-accent-green);">RIWAYAT SAYA</h2>
+        
         <div class="content-grid">
-            
             <div class="content-card">
                 <div class="card-header">
                     <h3>Lead UI/UX Designer</h3>
                     <span class="card-date">2022 - Sekarang</span>
                 </div>
-                <p class="card-location">PT. Kreatif Solusi</p>
+                <p class="card-location">PT. Kreatif Solusi (Pengalaman)</p>
                 <p class="card-description">Memimpin tim desain dalam mengembangkan produk web dan mobile, berhasil meningkatkan retensi pengguna sebesar 25% melalui perancangan ulang antarmuka.</p>
             </div>
             
@@ -472,7 +462,7 @@
                     <h3>Junior Web Designer</h3>
                     <span class="card-date">2020 - 2022</span>
                 </div>
-                <p class="card-location">Studio Desain Cepat</p>
+                <p class="card-location">Studio Desain Cepat (Pengalaman)</p>
                 <p class="card-description">Bertanggung jawab untuk desain landing page dan implementasi front-end menggunakan Elementor dan Bootstrap.</p>
             </div>
             
@@ -481,17 +471,31 @@
                     <h3>Sarjana Desain Komunikasi Visual</h3>
                     <span class="card-date">2016 - 2020</span>
                 </div>
-                <p class="card-location">Universitas Teknologi Kreatif</p>
+                <p class="card-location">Universitas Teknologi Kreatif (Pendidikan)</p>
                 <p class="card-description">Lulus dengan predikat Cum Laude. Fokus pada tipografi digital dan interaksi manusia-komputer.</p>
             </div>
             
-             <div class="content-card">
+            <div class="content-card">
                 <div class="card-header">
-                    <h3>Penghargaan Desain Terbaik</h3>
+                    <h3>Sertifikasi Profesional</h3>
                     <span class="card-date">2023</span>
                 </div>
-                <p class="card-location">Kompetisi Desain Nasional</p>
-                <p class="card-description">Juara 1 untuk kategori Desain Aplikasi Mobile dengan tema Edukasi. (Tambahkan prestasi Anda)</p>
+                <p class="card-location">Google UX Design Professional Certificate</p>
+                <p class="card-description">Sertifikasi komprehensif dalam proses desain UX, dari ideasi hingga pengujian dan *high-fidelity prototyping*.</p>
+            </div>
+        </div>
+        
+        <h3 class="prestasi-title">PRESTASI</h3>
+        <div class="content-grid prestasi-grid">
+            
+            <div class="prestasi-card">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Sertifikat+HTML" alt="Sertifikat HTML">
+                <p>Memiliki sertifikat Sololearn HTML</p>
+            </div>
+
+            <div class="prestasi-card" style="transform: rotate(1deg);">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Sertifikat+CSS" alt="Sertifikat CSS">
+                <p>Memiliki sertifikat Sololearn CSS</p>
             </div>
         </div>
     </section>
@@ -536,7 +540,7 @@
         <h2 class="section-title">MARI BERKOLABORASI</h2>
         <div class="contact-content">
             
-            <div class="contact-card">
+            <div class="contact-card-detail">
                 <h3>Informasi Kontak</h3>
                 
                 <a href="tel:+628123456789" class="contact-detail">
@@ -555,7 +559,7 @@
                 </p>
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card-detail">
                 <h3>Terhubung</h3>
                 <p style="color: var(--color-text-secondary); margin-bottom: 25px;">
                     Jangan ragu untuk menghubungi saya melalui saluran di bawah ini.
@@ -573,6 +577,28 @@
     </section>
 
     <script>
+        // Fungsi Khusus untuk Animasi Progress Bar
+        function animateProgressBars() {
+            const skillsContainer = document.querySelector('.skills-container');
+            if (!skillsContainer) return;
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+                            const percent = bar.parentElement.parentElement.getAttribute('data-percent');
+                            bar.style.width = percent + '%';
+                        });
+                        observer.unobserve(skillsContainer);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            observer.observe(skillsContainer);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.querySelector('.navbar');
             const navLinks = document.querySelectorAll('.navbar nav a');
@@ -612,6 +638,9 @@
                     });
                 });
             });
+
+            // Panggil fungsi animasi progress bar
+            animateProgressBars();
         });
     </script>
 </body>
