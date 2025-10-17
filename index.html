@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUNIOR WEB DEVELOPER</title>
+    <title>Raymond | Freelance Designer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* ==================================== */
@@ -99,7 +100,7 @@
             align-items: center;
             justify-content: space-between;
             min-height: 100vh;
-            padding: 100px 7%; /* Tambah padding atas untuk kompensasi navbar */
+            padding: 100px 7%;
             gap: 50px;
         }
 
@@ -135,7 +136,6 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            /* Garis kotak di sekitar foto, seperti pada template Elementor */
             border: 5px solid var(--color-surface-dark); 
             border-radius: 10px;
             padding: 15px; 
@@ -150,7 +150,7 @@
         }
 
         /* ==================================== */
-        /* 4. BUTTONS                           */
+        /* 4. GENERAL SECTION & BUTTONS         */
         /* ==================================== */
         .cta-buttons a {
             padding: 14px 35px;
@@ -186,49 +186,221 @@
             color: var(--color-accent-green);
         }
 
-        /* ==================================== */
-        /* 5. RESPONSIVE DESIGN                 */
-        /* ==================================== */
-        @media (max-width: 1024px) {
-            .hero-content h1 {
-                font-size: 3.5em;
-            }
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            font-size: 2.5em; 
+            margin-bottom: 50px; 
+            text-align: center;
         }
         
+        /* ==================================== */
+        /* 5. CONTENT SECTIONS (NEW)            */
+        /* ==================================== */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .card-header h3 {
+            font-size: 1.2em;
+            color: var(--color-accent-green);
+        }
+        
+        .card-date {
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+        }
+
+        .card-location {
+            font-size: 0.95em;
+            color: var(--color-text-light);
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .card-description {
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+        }
+
+        /* Skills/Keahlian Styling */
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .skill-tag {
+            background-color: var(--color-surface-dark);
+            color: var(--color-accent-green);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid rgba(121, 240, 100, 0.3);
+            transition: background-color 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--color-accent-green);
+            color: var(--color-bg-dark);
+        }
+
+        /* Project Card Styling */
+        #portfolio .content-card {
+            border: none;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .project-image-container {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .content-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 20px;
+            text-align: left;
+            background-color: var(--color-surface-dark);
+        }
+
+        /* ==================================== */
+        /* 6. CONTACT SECTION SPESIFIK (Reused) */
+        /* ==================================== */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-card {
+            background-color: var(--color-surface-dark);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 380px;
+            text-align: left;
+            border-left: 5px solid var(--color-accent-green);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--color-accent-green);
+        }
+
+        .contact-card p, .contact-card a.contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: var(--color-text-light);
+        }
+
+        .contact-card a.contact-detail:hover {
+            color: var(--color-accent-green);
+        }
+
+        .contact-card i {
+            margin-right: 15px;
+            font-size: 1.2em;
+            width: 25px;
+            text-align: center;
+            color: var(--color-accent-green);
+        }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.8em;
+            color: var(--color-text-secondary);
+        }
+
+        .social-links a:hover {
+            color: var(--color-accent-green);
+            transform: scale(1.1);
+        }
+
+        /* ==================================== */
+        /* 7. RESPONSIVE DESIGN (Revisi)        */
+        /* ==================================== */
         @media (max-width: 768px) {
             .navbar nav {
-                display: none; /* Sembunyikan Navigasi di Mobile (Biasanya diganti dengan Hamburger Menu) */
+                display: none;
             }
-
             .hero-section {
                 flex-direction: column;
                 text-align: center;
-                min-height: unset;
                 padding: 100px 5% 50px;
             }
-
             .hero-content {
                 max-width: 100%;
-                margin-bottom: 30px;
             }
-
-            .hero-content h1 {
-                font-size: 3em;
-            }
-            
             .hero-image-container {
                 max-width: 300px;
-                justify-content: center;
             }
-
             .cta-buttons {
-                display: flex;
                 flex-direction: column;
                 gap: 15px;
             }
-
-            .cta-buttons a {
-                margin-right: 0;
+            .contact-card, .skills-list {
+                max-width: 100%;
             }
         }
     </style>
@@ -236,11 +408,12 @@
 <body>
     
     <header class="navbar">
-        <div class="logo">NAKILLA</div>
+        <div class="logo">RAYMOND</div>
         <nav>
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#experience">Experience</a>
+            <a href="#portfolio">Project</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -248,36 +421,155 @@
     <section id="home" class="hero-section">
         <div class="hero-content">
             <p class="greeting">HELLO, I'M</p>
-            <h1>Nakilla Khoirin Periska</h1>
-            <p class="role">JUNIOR WEB DEVOLOPER</p>
+            <h1>RAYMOND</h1>
+            <p class="role">FREELANCE CREATIVE DESIGNER</p>
             
             <div class="cta-buttons">
-                <a href="#portfolio" class="btn btn-primary">PROJECT</a>
-                <a href="#contact" class="btn btn-secondary">CONTAC</a>
+                <a href="#portfolio" class="btn btn-primary">LIHAT PROJECT</a>
+                <a href="#contact" class="btn btn-secondary">HUBUNGI SAYA</a>
             </div>
         </div>
         <div class="hero-image-container">
-            <img src="Nakilla Khoirin Periska.png" alt="Foto Profil Nakilla">
+            <img src="https://via.placeholder.com/400x550/1c1c1c/ffffff?text=FOTO+ANDA" alt="Foto Profil Raymond">
         </div>
     </section>
 
-    <section id="about" style="min-height: 80vh; padding: 100px 7%; background-color: var(--color-surface-dark); text-align: center;">
-        <h2 style="font-size: 2.5em; margin-bottom: 20px;">ABOUT ME</h2>
-        <p style="max-width: 800px; margin: 0 auto; color: var(--color-text-secondary);">
-           Saya siswa jurusan Rekayasa Perangkat Lunak dengan minat kuat di pemrograman dan pengembangan aplikasi desktop serta web. 
-           Berpengalaman menggunakan Python, JavaScript, Java, HTML, dan CSS. 
-           Terus belajar teknologi baru dan mengasah kemampuan melalui berbagai proyek.
+    <section id="about" style="background-color: var(--color-surface-dark);">
+        <h2 class="section-title">TENTANG SAYA</h2>
+        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center; color: var(--color-text-secondary);">
+            Sebagai Desainer Kreatif Freelance, saya fokus pada UI/UX dan branding digital. 
+            Misi saya adalah mengubah ide menjadi solusi visual yang memukau dan berfungsi, didukung oleh pengalaman bertahun-tahun dalam industri teknologi.
         </p>
+        
+        <h3 class="section-title" style="font-size: 2em; margin-bottom: 30px;">Keahlian Teknis</h3>
+        <div class="skills-list">
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Wireframing</span>
+            <span class="skill-tag">Prototyping</span>
+            <span class="skill-tag">Branding</span>
+            <span class="skill-tag">HTML5 & CSS3</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Adobe Creative Suite</span>
+        </div>
     </section>
     
-    <section id="portfolio" style="min-height: 100vh; padding: 100px 7%; text-align: center;">
-        <h2 style="font-size: 2.5em; margin-bottom: 20px; color: var(--color-accent-green);">PORTOFOLIO PILIHAN</h2>
-        <p style="color: var(--color-text-secondary);">Berikut adalah beberapa karya terbaru saya.</p>
-        </section>
+    <section id="experience">
+        <h2 class="section-title" style="color: var(--color-accent-green);">PENGALAMAN & PENDIDIKAN</h2>
+        <div class="content-grid">
+            
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>Lead UI/UX Designer</h3>
+                    <span class="card-date">2022 - Sekarang</span>
+                </div>
+                <p class="card-location">PT. Kreatif Solusi</p>
+                <p class="card-description">Memimpin tim desain dalam mengembangkan produk web dan mobile, berhasil meningkatkan retensi pengguna sebesar 25% melalui perancangan ulang antarmuka.</p>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>Junior Web Designer</h3>
+                    <span class="card-date">2020 - 2022</span>
+                </div>
+                <p class="card-location">Studio Desain Cepat</p>
+                <p class="card-description">Bertanggung jawab untuk desain landing page dan implementasi front-end menggunakan Elementor dan Bootstrap.</p>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>Sarjana Desain Komunikasi Visual</h3>
+                    <span class="card-date">2016 - 2020</span>
+                </div>
+                <p class="card-location">Universitas Teknologi Kreatif</p>
+                <p class="card-description">Lulus dengan predikat Cum Laude. Fokus pada tipografi digital dan interaksi manusia-komputer.</p>
+            </div>
+            
+             <div class="content-card">
+                <div class="card-header">
+                    <h3>Penghargaan Desain Terbaik</h3>
+                    <span class="card-date">2023</span>
+                </div>
+                <p class="card-location">Kompetisi Desain Nasional</p>
+                <p class="card-description">Juara 1 untuk kategori Desain Aplikasi Mobile dengan tema Edukasi. (Tambahkan prestasi Anda)</p>
+            </div>
+        </div>
+    </section>
 
-    <section id="contact" style="min-height: 50vh; padding: 100px 7%; background-color: var(--color-surface-dark); text-align: center;">
-        <h2 style="font-size: 2.5em; margin-bottom: 20px;">HUBUNGI CONTAC SAYA</h2>
-        <p style="color: var(--color-text-secondary);">Tunggu apa lagi? Kirimkan email atau hubungi saya!</p>
+    <section id="portfolio" style="background-color: var(--color-surface-dark);">
+        <h2 class="section-title">PROJECT TERBARU</h2>
+        <div class="content-grid">
+            
+            <a href="#" target="_blank" class="content-card">
+                <div class="project-image-container">
+                    <img src="https://via.placeholder.com/600x400/2a2a2a/79f064?text=PROJECT+UI%2FUX" alt="Project UI/UX App" class="project-image">
+                </div>
+                <div class="project-info">
+                    <h3 style="color: var(--color-text-light);">Aplikasi Manajemen Keuangan</h3>
+                    <p class="card-description">Perancangan UI/UX lengkap, dari wireframe hingga prototipe fungsional.</p>
+                </div>
+            </a>
+            
+            <a href="#" target="_blank" class="content-card">
+                <div class="project-image-container">
+                    <img src="https://via.placeholder.com/600x400/2a2a2a/79f064?text=PROJECT+BRANDING" alt="Project Branding" class="project-image">
+                </div>
+                <div class="project-info">
+                    <h3 style="color: var(--color-text-light);">Brand Identity Startup Teknologi</h3>
+                    <p class="card-description">Pengembangan logo, panduan gaya, dan aset pemasaran digital.</p>
+                </div>
+            </a>
+
+            <a href="#" target="_blank" class="content-card">
+                <div class="project-image-container">
+                    <img src="https://via.placeholder.com/600x400/2a2a2a/79f064?text=LANDING+PAGE" alt="Project Landing Page" class="project-image">
+                </div>
+                <div class="project-info">
+                    <h3 style="color: var(--color-text-light);">Landing Page E-Commerce Cepat</h3>
+                    <p class="card-description">Desain konversi tinggi dengan fokus pada kecepatan dan responsivitas.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">MARI BERKOLABORASI</h2>
+        <div class="contact-content">
+            
+            <div class="contact-card">
+                <h3>Informasi Kontak</h3>
+                
+                <a href="tel:+628123456789" class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    +62 812 3456 789 (WhatsApp Tersedia)
+                </a>
+                
+                <a href="mailto:raymond@emailanda.com" class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    raymond@emailanda.com
+                </a>
+                
+                <p class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Jakarta, Indonesia
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Terhubung</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: 25px;">
+                    Jangan ragu untuk menghubungi saya melalui saluran di bawah ini.
+                </p>
+                <a href="mailto:raymond@emailanda.com" class="btn btn-primary" style="margin-top: 15px;">KIRIM EMAIL</a>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/namaanda" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/akunanda" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/akunanda" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://dribbble.com/akunanda" target="_blank" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            
+        </div>
     </section>
 
     <script>
@@ -297,7 +589,7 @@
                 // Menandai link navigasi yang aktif
                 let current = '';
                 document.querySelectorAll('section').forEach(section => {
-                    const sectionTop = section.offsetTop - navbar.offsetHeight;
+                    const sectionTop = section.offsetTop - navbar.offsetHeight - 50; 
                     if (window.scrollY >= sectionTop) {
                         current = section.getAttribute('id');
                     }
@@ -311,7 +603,7 @@
                 });
             });
 
-            // Smooth Scrolling (menggantikan browser default)
+            // Smooth Scrolling 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
