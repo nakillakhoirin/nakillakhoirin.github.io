@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Pribadi | Desainer Freelance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Raymond | Freelance Designer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Variabel CSS untuk Skema Warna Dark Mode dan Aksen Hijau */
+        /* ==================================== */
+        /* 1. ROOT & RESET                      */
+        /* ==================================== */
         :root {
-            --color-dark: #1e1e1e;
-            --color-light: #ffffff;
-            --color-accent: #6ee755; /* Aksen Hijau Terang */
-            --color-text-secondary: #aaaaaa;
+            --color-bg-dark: #141414; /* Background Sangat Gelap */
+            --color-surface-dark: #1c1c1c; /* Permukaan Sedikit Lebih Terang */
+            --color-text-light: #ffffff;
+            --color-text-secondary: #a0a0a0;
+            --color-accent-green: #79f064; /* Aksen Hijau Neon */
             --font-primary: 'Poppins', sans-serif;
         }
 
-        /* Reset Dasar */
         * {
             margin: 0;
             padding: 0;
@@ -25,145 +27,198 @@
 
         body {
             font-family: var(--font-primary);
-            background-color: var(--color-dark);
-            color: var(--color-light);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-light);
             line-height: 1.6;
-            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         a {
-            color: var(--color-light);
+            color: var(--color-text-light);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        /* Navigation Bar */
+        /* ==================================== */
+        /* 2. NAVIGATION BAR                    */
+        /* ==================================== */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background-color: var(--color-dark);
-            position: sticky;
+            padding: 20px 7%;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            transition: background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(20, 20, 20, 0.95);
+            padding: 15px 7%;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
         }
 
         .logo {
-            font-size: 1.8em;
+            font-size: 1.6em;
             font-weight: 700;
-            color: var(--color-accent);
+            letter-spacing: 1px;
+            color: var(--color-accent-green);
         }
 
         .navbar nav a {
-            margin-left: 25px;
-            font-weight: 400;
+            margin-left: 35px;
+            font-size: 0.95em;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .navbar nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent-green);
+            transition: width 0.3s ease;
         }
 
-        .navbar nav a:hover {
-            color: var(--color-accent);
+        .navbar nav a:hover::after,
+        .navbar nav a.active::after {
+            width: 100%;
         }
 
-        /* Hero Section (Bagian Perkenalan) */
+        /* ==================================== */
+        /* 3. HERO SECTION                      */
+        /* ==================================== */
         .hero-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 80vh;
-            padding: 50px 5%;
+            min-height: 100vh;
+            padding: 100px 7%; /* Tambah padding atas untuk kompensasi navbar */
+            gap: 50px;
         }
 
         .hero-content {
-            max-width: 55%;
+            flex: 1;
+            max-width: 600px;
         }
 
         .greeting {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: var(--color-accent);
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--color-accent-green);
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .hero-content h1 {
-            font-size: 4.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 4.8em;
+            font-weight: 800;
+            margin-bottom: 5px;
             line-height: 1.1;
         }
 
         .role {
-            font-size: 1.2em;
+            font-size: 1.4em;
             color: var(--color-text-secondary);
-            margin-bottom: 30px;
+            font-weight: 300;
+            margin-bottom: 40px;
         }
 
-        .hero-image {
-            max-width: 40%;
-            text-align: right;
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            /* Garis kotak di sekitar foto, seperti pada template Elementor */
+            border: 5px solid var(--color-surface-dark); 
+            border-radius: 10px;
+            padding: 15px; 
+            max-width: 450px;
         }
 
-        .hero-image img {
-            max-width: 100%;
+        .hero-image-container img {
+            width: 100%;
             height: auto;
-            border-radius: 8px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            /* Memastikan foto tidak terlalu jauh ke atas */
-            margin-top: -50px; 
+            display: block;
+            border-radius: 5px; 
         }
 
-        /* Call-to-Action Buttons */
+        /* ==================================== */
+        /* 4. BUTTONS                           */
+        /* ==================================== */
         .cta-buttons a {
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 14px 35px;
+            border-radius: 8px;
             font-weight: 600;
-            margin-right: 15px;
+            margin-right: 20px;
             display: inline-block;
             border: 2px solid transparent;
             text-align: center;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
-            background-color: var(--color-accent);
-            color: var(--color-dark);
+            background-color: var(--color-accent-green);
+            color: var(--color-bg-dark);
         }
 
         .btn-primary:hover {
-            background-color: #55c840;
+            background-color: transparent;
+            color: var(--color-accent-green);
+            border-color: var(--color-accent-green);
+            box-shadow: 0 0 15px rgba(121, 240, 100, 0.4);
         }
 
         .btn-secondary {
             background-color: transparent;
             border-color: var(--color-text-secondary);
-            color: var(--color-light);
+            color: var(--color-text-light);
         }
 
         .btn-secondary:hover {
-            border-color: var(--color-accent);
-            color: var(--color-accent);
+            border-color: var(--color-accent-green);
+            color: var(--color-accent-green);
         }
 
-        /* Responsive Design Sederhana */
+        /* ==================================== */
+        /* 5. RESPONSIVE DESIGN                 */
+        /* ==================================== */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .navbar nav {
+                display: none; /* Sembunyikan Navigasi di Mobile (Biasanya diganti dengan Hamburger Menu) */
+            }
+
             .hero-section {
                 flex-direction: column;
                 text-align: center;
                 min-height: unset;
+                padding: 100px 5% 50px;
             }
 
-            .hero-content, .hero-image {
+            .hero-content {
                 max-width: 100%;
-                margin-bottom: 40px;
-            }
-
-            .hero-image img {
-                margin-top: 0;
+                margin-bottom: 30px;
             }
 
             .hero-content h1 {
                 font-size: 3em;
+            }
+            
+            .hero-image-container {
+                max-width: 300px;
+                justify-content: center;
             }
 
             .cta-buttons {
@@ -175,27 +230,16 @@
             .cta-buttons a {
                 margin-right: 0;
             }
-
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar nav {
-                margin-top: 15px;
-            }
-            
-            .navbar nav a {
-                margin: 0 10px;
-            }
         }
     </style>
 </head>
 <body>
     
     <header class="navbar">
-        <div class="logo">Rraymond</div>
+        <div class="logo">RAYMOND</div>
         <nav>
             <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -208,45 +252,66 @@
             <p class="role">FREELANCE CREATIVE DESIGNER</p>
             
             <div class="cta-buttons">
-                <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
-                <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+                <a href="#portfolio" class="btn btn-primary">LIHAT KARYA</a>
+                <a href="#contact" class="btn btn-secondary">HUBUNGI SAYA</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="https://via.placeholder.com/300x400/1e1e1e/ffffff?text=FOTO+ANDA" alt="Foto Profil Raymond">
+        <div class="hero-image-container">
+            <img src="https://via.placeholder.com/400x550/1c1c1c/ffffff?text=FOTO+ANDA" alt="Foto Profil Raymond">
         </div>
     </section>
 
-    <section id="portfolio" style="height: 100vh; padding: 5%; text-align: center;">
-        <h2>[ BAGIAN PORTOFOLIO DI SINI ]</h2>
-        <p style="color: var(--color-text-secondary);">Tambahkan koleksi proyek-proyek Anda.</p>
+    <section id="about" style="min-height: 80vh; padding: 100px 7%; background-color: var(--color-surface-dark); text-align: center;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px;">TENTANG SAYA</h2>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--color-text-secondary);">
+            Sebagai Desainer Kreatif Freelance, saya fokus pada UI/UX dan branding digital. 
+            Misi saya adalah mengubah ide menjadi solusi visual yang memukau dan berfungsi.
+            (Ganti dengan profil dan detail Anda).
+        </p>
     </section>
     
-    <section id="contact" style="height: 50vh; padding: 5%; text-align: center; background-color: #2a2a2a;">
-        <h2>[ BAGIAN KONTAK DI SINI ]</h2>
-        <p style="color: var(--color-text-secondary);">Masukkan formulir kontak dan detail Anda.</p>
-    </section>
+    <section id="portfolio" style="min-height: 100vh; padding: 100px 7%; text-align: center;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px; color: var(--color-accent-green);">PORTOFOLIO PILIHAN</h2>
+        <p style="color: var(--color-text-secondary);">Berikut adalah beberapa karya terbaru saya.</p>
+        </section>
 
+    <section id="contact" style="min-height: 50vh; padding: 100px 7%; background-color: var(--color-surface-dark); text-align: center;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px;">MARI BERKOLABORASI</h2>
+        <p style="color: var(--color-text-secondary);">Tunggu apa lagi? Kirimkan email atau hubungi saya!</p>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.querySelector('.navbar');
-            const scrollThreshold = 50; 
+            const navLinks = document.querySelectorAll('.navbar nav a');
+            const scrollThreshold = 20; 
 
             // Efek Navbar Saat Scroll
             window.addEventListener('scroll', () => {
                 if (window.scrollY > scrollThreshold) {
-                    // Navbar menjadi sedikit transparan gelap dan memiliki shadow
-                    navbar.style.backgroundColor = 'rgba(30, 30, 30, 0.95)';
-                    navbar.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.5)';
+                    navbar.classList.add('scrolled');
                 } else {
-                    // Kembali ke warna awal saat di bagian atas
-                    navbar.style.backgroundColor = 'var(--color-dark)';
-                    navbar.style.boxShadow = 'none';
+                    navbar.classList.remove('scrolled');
                 }
+                
+                // Menandai link navigasi yang aktif
+                let current = '';
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop - navbar.offsetHeight;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
             });
 
-            // Opsional: Smooth Scrolling (jika browser tidak mendukung scroll-behavior: smooth)
+            // Smooth Scrolling (menggantikan browser default)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
