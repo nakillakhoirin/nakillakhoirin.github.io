@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raymond | Gabungan Gaya Portofolio</title>
+    <title>Raymond | Portfolio Hybrid</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* ==================================== */
-        /* 1. ROOT & RESET                      */
+        /* 1. ROOT & RESET (Gaya Dasar Gelap)   */
         /* ==================================== */
         :root {
             --color-bg-dark: #141414;
@@ -20,250 +20,219 @@
             --color-accent-green: #79f064;
             --font-primary: 'Poppins', sans-serif;
             --font-display: 'Shadows Into Light Two', cursive;
-            --color-bg-light: #f5f5f5; /* Warna untuk Keahlian Section */
+            --color-bg-light: #f5f5f5; /* Background Keahlian */
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--color-bg-dark);
-            color: var(--color-text-light);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: var(--color-text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        /* ==================================== */
-        /* 2. NAVIGATION, HERO, BUTTONS (Gaya LIO.JFIF) */
-        /* ==================================== */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 7%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.4s ease, padding 0.4s ease;
-        }
-
-        .navbar.scrolled {
-            background-color: rgba(20, 20, 20, 0.95);
-            padding: 15px 7%;
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .logo {
-            font-size: 1.6em;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--color-accent-green);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-primary); background-color: var(--color-bg-dark); color: var(--color-text-light); scroll-behavior: smooth; overflow-x: hidden; }
+        a { color: var(--color-text-light); text-decoration: none; transition: color 0.3s; }
         
-        /* Hero Section (Diubah mengikuti Lio.jfif) */
-        .hero-section {
-            background-color: var(--color-bg-dark);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-            padding: 100px 7%;
-            gap: 50px;
-        }
-        .hero-content { flex: 1; max-width: 50%; }
-        .hero-content h1 { font-size: 4.8em; font-weight: 800; line-height: 1.1; }
-        .hero-content .role { color: var(--color-text-secondary); }
-        .hero-image-container { 
-            flex: 1; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            max-width: 50%;
-            position: relative;
-        }
-        .hero-image-container img {
-            width: 100%;
-            max-width: 450px;
-            height: auto;
-            border-radius: 10px; 
-            border: 3px solid var(--color-accent-green);
-        }
-
-        .btn-primary { background-color: var(--color-accent-green); color: var(--color-bg-dark); }
-        .btn-secondary { background-color: transparent; border-color: var(--color-text-secondary); color: var(--color-text-light); }
-
-        section { padding: 100px 7%; }
+        section { padding: 100px 7%; position: relative; }
         .section-title { font-size: 2.5em; margin-bottom: 50px; text-align: center; }
+
+        /* NAVIGASI & HERO (Gaya Profesional - Lio.jfif) */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 7%; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar.scrolled { background-color: rgba(20, 20, 20, 0.95); padding: 15px 7%; }
+        .logo { font-size: 1.6em; font-weight: 700; color: var(--color-accent-green); }
         
+        .hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-content h1 { font-size: 4.8em; }
+        .hero-image-container img { border: 3px solid var(--color-accent-green); border-radius: 10px; max-width: 450px; }
+        .btn-primary { background-color: var(--color-accent-green); color: var(--color-bg-dark); padding: 14px 35px; border-radius: 8px; }
+
         /* ==================================== */
-        /* 3. KEAHLIAN (Gaya Scrapbook Lianas)  */
+        /* 2. KEAHLIAN (Gaya Scrapbook Terang - Tasi.jpg) */
         /* ==================================== */
         #about {
             background-color: var(--color-bg-light); /* Background terang */
             background-image: url('https://via.placeholder.com/1920x1080/f5f5f5/cccccc?text=Light+Paper+Texture');
             background-size: cover;
-            background-position: center;
-            position: relative;
+            color: #141414; /* Teks gelap */
             overflow: hidden;
-            color: #141414; /* Teks gelap di background terang */
+            padding-bottom: 50px;
         }
         #about p, #about h2 { color: #141414; }
 
         .keahlian-title {
             font-family: var(--font-display);
             font-size: 5em;
-            color: #141414; /* Judul gelap */
+            color: #141414;
             text-align: center;
             margin-bottom: 20px;
-            letter-spacing: 2px;
         }
 
         /* Dekorasi KEAHLIAN */
-        .decorative-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .decor-item {
-            position: absolute;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
-        }
-        .decor-item img { max-width: 100%; height: auto; display: block; }
-        .decor-tape-left { top: 10%; left: 5%; width: 120px; transform: rotate(-10deg); }
-        .decor-leaf-right { top: 8%; right: 3%; width: 150px; transform: rotate(20deg); }
-        .decor-paper-bottom-left { bottom: 5%; left: 10%; width: 200px; transform: rotate(5deg); }
-
+        .decorative-elements { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; }
+        .decor-item { position: absolute; opacity: 0.8; filter: grayscale(100%); }
+        /* Placeholder Images for Cassette, Leaf, Spider (Perlu Aset PNG Transparan) */
+        .decor-cassette { top: 20%; left: 10%; width: 100px; transform: rotate(10deg); }
+        .decor-leaf { top: 15%; right: 10%; width: 80px; transform: rotate(40deg); }
+        .decor-spider { top: 10%; left: 45%; width: 50px; opacity: 0.4; }
 
         .skills-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding-top: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background-color: rgba(255, 255, 255, 0.7); /* Transparan putih */
-            padding: 40px;
-            border-radius: 10px;
+            max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;
+            gap: 40px; background-color: rgba(255, 255, 255, 0.8); padding: 40px; border-radius: 10px; z-index: 2; position: relative;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
-        .skill-name { color: #141414; }
-        .progress-bar-bg { background-color: #cccccc; height: 8px; border-radius: 4px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; background-color: var(--color-accent-green); border-radius: 4px; width: 0; transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .skill-name { color: #141414; font-weight: 500;}
+        .progress-bar-bg { background-color: #cccccc; height: 8px; border-radius: 4px; }
+        .progress-bar-fill { background-color: var(--color-accent-green); height: 100%; width: 0; transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
 
         /* ==================================== */
-        /* 4. RIWAYAT (PENGALAMAN & PENDIDIKAN) */
+        /* 3. PENDIDIKAN (Gaya Scrapbook Gelap - Dika.jpg) */
         /* ==================================== */
-        #experience {
-            background-color: var(--color-surface-dark);
+        #education {
+            background-color: #000000;
+            background-image: url('https://via.placeholder.com/1920x1080/000000/111111?text=Dark+Scratch+Texture');
+            background-size: cover;
+            color: var(--color-text-light);
+            overflow: hidden;
         }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .pendidikan-title {
+            font-family: var(--font-display);
+            font-size: 5em;
+            color: var(--color-text-light);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+            margin-bottom: 50px;
+            text-align: center;
         }
-
-        .content-card {
-            background-color: var(--color-surface-dark);
-            padding: 30px;
+        
+        .education-grid {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;
+            max-width: 1000px; margin: 0 auto;
+        }
+        
+        .education-card {
+            position: relative;
+            background-color: #1a1a1a; /* Warna gelap */
+            padding: 20px;
             border-radius: 8px;
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+            border: 2px solid #333;
+            text-align: center;
+            width: 300px; /* Lebar tetap */
+            transform: rotate(2deg); /* Sedikit rotasi */
+        }
+        .education-card:nth-child(even) { transform: rotate(-3deg); } /* Rotasi bergantian */
+        
+        .education-card-inner {
+            background-color: #0d0d0d; /* Latar belakang lebih gelap di dalam */
+            border: 1px dashed #444;
+            padding: 25px 15px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .education-card h4 {
+            font-size: 1.4em;
+            color: var(--color-accent-green);
+            margin-bottom: 10px;
+        }
+        .education-card p {
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+            margin-bottom: 5px;
+        }
+        .education-card .dates {
+            font-size: 0.8em;
+            font-style: italic;
+            color: #777;
         }
 
-        .card-header h3 { color: var(--color-accent-green); }
-        .card-description { color: var(--color-text-secondary); }
-
+        /* ==================================== */
+        /* 4. PENGALAMAN                        */
+        /* ==================================== */
+        /* Gaya sudah ada di atas */
 
         /* ==================================== */
-        /* 5. PRESTASI (Gaya Scrapbook Gelap)   */
+        /* 5. PRESTASI (Gaya Scrapbook Gelap - Prestasi.jpg) */
         /* ==================================== */
         #achievements {
-            background-color: var(--color-bg-dark);
-            background-image: url('https://via.placeholder.com/1920x1080/141414/222222?text=Dark+Scratch+Texture');
+            background-color: #000000;
+            background-image: url('https://via.placeholder.com/1920x1080/000000/111111?text=Dark+Scratch+Texture');
             background-size: cover;
-            position: relative;
+            color: var(--color-text-light);
+            overflow: hidden;
         }
         
         .prestasi-title {
             font-family: var(--font-display);
             font-size: 5em;
             color: var(--color-text-light);
-            text-align: center;
-            margin-bottom: 50px;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+            margin-bottom: 50px;
         }
         
-        .prestasi-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+        .prestasi-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        
         .prestasi-card {
-            background-color: #333333; /* Warna gelap */
-            width: 350px;
-            padding: 50px 30px 30px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-            /* Efek kertas sobek/tekstur */
-            border-radius: 5px;
-            transform: rotate(-1deg);
-            border: 2px dashed #777;
+            width: 350px; padding: 0; text-align: center; position: relative;
+            background-color: transparent; /* Membuat background card transparan */
+            transform: rotate(2deg);
         }
-        .prestasi-card img {
-            max-width: 90%;
-            height: auto;
-            margin: 0 auto 15px;
+        
+        /* Meniru Efek Kertas Sobek di Latar Belakang Sertifikat */
+        .sertifikat-container {
+            position: relative;
+            background-color: #111111;
+            padding: 50px 20px 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            color: #cccccc;
+            background-image: url('https://i.imgur.com/vH1WjPz.png'); /* Placeholder dark texture */
+            background-size: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
             border: 2px solid #555;
         }
-        .prestasi-card p {
-            color: var(--color-text-light);
-            font-weight: 500;
+        
+        .sertifikat-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Overlay gelap */
+            z-index: 1;
         }
-
+        
+        .prestasi-sertifikat {
+            z-index: 2;
+            position: relative;
+            background-color: #ffffff; /* Warna putih sertifikat */
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            display: inline-block; /* Agar bisa di tengah */
+            transform: rotate(-3deg); /* Rotasi sedikit pada sertifikat */
+        }
+        
+        .sertifikat-caption {
+            color: #ffffff;
+            font-weight: 500;
+            margin-top: 15px;
+            z-index: 2;
+            position: relative;
+        }
+        
         /* ==================================== */
-        /* 6. PROJECT & CONTACT - Gaya Profesional */
+        /* 6. PROJECT & CONTACT                 */
         /* ==================================== */
         #portfolio { background-color: var(--color-surface-dark); }
-        #contact { background-color: var(--color-bg-dark); }
-        
         .project-image-container { height: 250px; overflow: hidden; }
         .project-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .content-card:hover .project-image { transform: scale(1.05); }
 
-        .contact-card-detail {
-            background-color: var(--color-surface-dark);
-            border-left: 5px solid var(--color-accent-green);
-        }
+        .contact-card-detail { background-color: var(--color-surface-dark); border-left: 5px solid var(--color-accent-green); }
 
-        /* Responsive - Tetap */
+        /* Responsive */
         @media (max-width: 768px) {
             .hero-section { flex-direction: column; text-align: center; }
             .hero-content, .hero-image-container { max-width: 100%; }
-            .keahlian-title, .prestasi-title { font-size: 3.5em; }
+            .keahlian-title, .pendidikan-title, .prestasi-title { font-size: 3.5em; }
             .skills-container { grid-template-columns: 1fr; }
             .decor-item { display: none; }
+            .education-card { width: 100%; max-width: 350px; }
         }
     </style>
 </head>
@@ -274,7 +243,8 @@
         <nav>
             <a href="#home" class="active">Home</a>
             <a href="#about">Keahlian</a>
-            <a href="#experience">Riwayat</a>
+            <a href="#education">Pendidikan</a>
+            <a href="#experience">Pengalaman</a>
             <a href="#achievements">Prestasi</a>
             <a href="#portfolio">Project</a>
             <a href="#contact">Contact</a>
@@ -300,19 +270,19 @@
     <section id="about">
         
         <div class="decorative-elements">
-            <div class="decor-item decor-tape-left"><img src="https://i.imgur.com/rL7U1Jc.png" alt="Decorative Tape"></div>
-            <div class="decor-item decor-leaf-right"><img src="https://i.imgur.com/w1A7f1w.png" alt="Decorative Leaf"></div>
-            <div class="decor-item decor-paper-bottom-left"><img src="https://i.imgur.com/cWp4v8X.png" alt="Torn Paper"></div>
+            <div class="decor-item decor-cassette"><img src="https://i.imgur.com/rL7U1Jc.png" alt="Decorative Cassette"></div>
+            <div class="decor-item decor-leaf"><img src="https://i.imgur.com/w1A7f1w.png" alt="Decorative Leaf"></div>
+            <div class="decor-item decor-spider"><img src="https://i.imgur.com/s0pQ5gQ.png" alt="Decorative Spider"></div>
         </div>
 
         <h2 class="section-title">TENTANG SAYA</h2>
-        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center;">
+        <p style="max-width: 800px; margin: 0 auto 50px; text-align: center; color: #333;">
             Sebagai Desainer Kreatif Freelance, saya fokus pada UI/UX dan branding digital. 
-            Misi saya adalah mengubah ide menjadi solusi visual yang memukau dan berfungsi.
         </p>
         
         <h3 class="keahlian-title">KEAHLIAN</h3> 
         <div class="skills-container">
+
             <div class="skill-item" data-percent="90">
                 <div class="skill-header">
                     <span class="skill-name">HTML</span>
@@ -355,45 +325,52 @@
 
         </div>
     </section>
+
+    <section id="education">
+        <h3 class="pendidikan-title">PENDIDIKAN</h3>
+        <div class="education-grid">
+            
+            <div class="education-card">
+                <div class="education-card-inner">
+                    <h4>SEKOLAH MENENGAH KEJURUAN</h4>
+                    <p>SMK INFORMATIKA UTAMA</p>
+                    <p class="dates">2024 - SEKARANG</p>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-card-inner">
+                    <h4>SEKOLAH MENENGAH PERTAMA</h4>
+                    <p>Bachelor of Fine Arts, BFA</p>
+                    <p class="dates">2021 - 2024</p>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-card-inner">
+                    <h4>SEKOLAH DASAR</h4>
+                    <p>SDN CINGERE 2</p>
+                    <p class="dates">2015 - 2021</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
     
     <section id="experience">
-        <h2 class="section-title" style="color: var(--color-accent-green);">RIWAYAT SAYA (PENGALAMAN & PENDIDIKAN)</h2>
+        <h2 class="section-title" style="color: var(--color-accent-green);">RIWAYAT SAYA (PENGALAMAN)</h2>
         
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-header">
-                    <h3>Lead UI/UX Designer</h3>
-                    <span class="card-date">2022 - Sekarang</span>
-                </div>
+                <div class="card-header"><h3>Lead UI/UX Designer</h3><span class="card-date">2022 - Sekarang</span></div>
                 <p class="card-location">PT. Kreatif Solusi (Pengalaman)</p>
-                <p class="card-description">Memimpin tim desain dalam mengembangkan produk web dan mobile, berhasil meningkatkan retensi pengguna sebesar 25%.</p>
+                <p class="card-description">Memimpin tim desain dalam mengembangkan produk web dan mobile.</p>
             </div>
             
             <div class="content-card">
-                <div class="card-header">
-                    <h3>Junior Web Designer</h3>
-                    <span class="card-date">2020 - 2022</span>
-                </div>
+                <div class="card-header"><h3>Junior Web Designer</h3><span class="card-date">2020 - 2022</span></div>
                 <p class="card-location">Studio Desain Cepat (Pengalaman)</p>
                 <p class="card-description">Bertanggung jawab untuk desain landing page dan implementasi front-end.</p>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-header">
-                    <h3>Sarjana Desain Komunikasi Visual</h3>
-                    <span class="card-date">2016 - 2020</span>
-                </div>
-                <p class="card-location">Universitas Teknologi Kreatif (Pendidikan)</p>
-                <p class="card-description">Lulus dengan predikat Cum Laude. Fokus pada tipografi digital dan interaksi manusia-komputer.</p>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-header">
-                    <h3>Sertifikasi Profesional</h3>
-                    <span class="card-date">2023</span>
-                </div>
-                <p class="card-location">Google UX Design Professional Certificate (Pendidikan Tambahan)</p>
-                <p class="card-description">Sertifikasi komprehensif dalam proses desain UX, dari ideasi hingga pengujian.</p>
             </div>
         </div>
     </section>
@@ -402,14 +379,22 @@
         <h3 class="prestasi-title">PRESTASI</h3>
         <div class="prestasi-grid">
             
-            <div class="prestasi-card">
-                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Sertifikat+HTML" alt="Sertifikat HTML">
-                <p>Memiliki sertifikat Sololearn HTML</p>
+            <div class="prestasi-card" style="transform: rotate(-2deg);">
+                <div class="sertifikat-container">
+                    <div class="prestasi-sertifikat">
+                        <img src="https://via.placeholder.com/250x150/ffffff/333333?text=Sertifikat+Sololearn+HTML" alt="Sertifikat HTML">
+                    </div>
+                    <p class="sertifikat-caption">Memiliki sertifikat Sololearn HTML</p>
+                </div>
             </div>
 
             <div class="prestasi-card" style="transform: rotate(1deg);">
-                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Sertifikat+CSS" alt="Sertifikat CSS">
-                <p>Memiliki sertifikat Sololearn CSS</p>
+                <div class="sertifikat-container">
+                    <div class="prestasi-sertifikat">
+                        <img src="https://via.placeholder.com/250x150/ffffff/333333?text=Sertifikat+Sololearn+CSS" alt="Sertifikat CSS">
+                    </div>
+                    <p class="sertifikat-caption">Memiliki sertifikat Sololearn CSS</p>
+                </div>
             </div>
         </div>
     </section>
@@ -424,7 +409,7 @@
                 </div>
                 <div class="project-info">
                     <h3 style="color: var(--color-text-light);">Aplikasi Manajemen Keuangan</h3>
-                    <p class="card-description">Perancangan UI/UX lengkap, dari wireframe hingga prototipe fungsional.</p>
+                    <p class="card-description">Perancangan UI/UX lengkap.</p>
                 </div>
             </a>
             
@@ -434,7 +419,7 @@
                 </div>
                 <div class="project-info">
                     <h3 style="color: var(--color-text-light);">Brand Identity Startup Teknologi</h3>
-                    <p class="card-description">Pengembangan logo, panduan gaya, dan aset pemasaran digital.</p>
+                    <p class="card-description">Pengembangan logo dan aset pemasaran digital.</p>
                 </div>
             </a>
 
@@ -444,7 +429,7 @@
                 </div>
                 <div class="project-info">
                     <h3 style="color: var(--color-text-light);">Landing Page E-Commerce Cepat</h3>
-                    <p class="card-description">Desain konversi tinggi dengan fokus pada kecepatan dan responsivitas.</p>
+                    <p class="card-description">Desain konversi tinggi dan responsif.</p>
                 </div>
             </a>
         </div>
@@ -452,41 +437,13 @@
 
     <section id="contact">
         <h2 class="section-title">MARI BERKOLABORASI</h2>
-        <div class="contact-content">
-            
+        <div class="contact-grid">
             <div class="contact-card-detail">
                 <h3>Informasi Kontak</h3>
-                
-                <a href="tel:+628123456789" class="contact-detail">
-                    <i class="fas fa-phone"></i>
-                    +62 812 3456 789 (WhatsApp Tersedia)
-                </a>
-                
-                <a href="mailto:raymond@emailanda.com" class="contact-detail">
-                    <i class="fas fa-envelope"></i>
-                    raymond@emailanda.com
-                </a>
-                
-                <p class="contact-detail">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Jakarta, Indonesia
-                </p>
+                <a href="tel:+628123456789" class="contact-detail"><i class="fas fa-phone"></i>+62 812 3456 789</a>
+                <a href="mailto:raymond@emailanda.com" class="contact-detail"><i class="fas fa-envelope"></i>raymond@emailanda.com</a>
+                <p class="contact-detail"><i class="fas fa-map-marker-alt"></i>Jakarta, Indonesia</p>
             </div>
-
-            <div class="contact-card-detail">
-                <h3>Terhubung</h3>
-                <p style="color: var(--color-text-secondary); margin-bottom: 25px;">
-                    Jangan ragu untuk menghubungi saya melalui saluran di bawah ini.
-                </p>
-                <a href="mailto:raymond@emailanda.com" class="btn btn-primary" style="margin-top: 15px;">KIRIM EMAIL</a>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/namaanda" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/akunanda" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/akunanda" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://dribbble.com/akunanda" target="_blank" title="Dribbble"><i class="fab fa-dribbble"></i></a>
-                </div>
-            </div>
-            
         </div>
     </section>
 
@@ -505,30 +462,24 @@
                         observer.unobserve(skillsContainer);
                     }
                 });
-            }, {
-                threshold: 0.5
-            });
-
+            }, { threshold: 0.5 });
             observer.observe(skillsContainer);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.querySelector('.navbar');
             const navLinks = document.querySelectorAll('.navbar nav a');
-            const scrollThreshold = 20; 
 
-            // Efek Navbar Saat Scroll
             window.addEventListener('scroll', () => {
+                const scrollThreshold = 20; 
                 if (window.scrollY > scrollThreshold) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
                 
-                // Menandai link navigasi yang aktif
                 let current = '';
                 document.querySelectorAll('section').forEach(section => {
-                    // Cek section achievements (yang baru) dan pastikan urutan pengecekan benar
                     const sectionTop = section.offsetTop - navbar.offsetHeight - 50; 
                     if (window.scrollY >= sectionTop) {
                         current = section.getAttribute('id');
@@ -543,17 +494,13 @@
                 });
             });
 
-            // Smooth Scrolling 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
                 });
             });
 
-            // Panggil fungsi animasi progress bar
             animateProgressBars();
         });
     </script>
